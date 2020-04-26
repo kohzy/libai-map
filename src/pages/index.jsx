@@ -20,7 +20,7 @@ const IndexPage = () => (
   <Layout>
     <Container my="2rem">
       <h1>Welcome to the Gatsby starter for Mapbox GL!</h1>
-
+      <p>test</p>
       <Section>
         <h3>Example: a fixed size map:</h3>
         <Map width="400px" height="400px" />
