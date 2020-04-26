@@ -20,7 +20,6 @@ const IndexPage = () => (
   <Layout>
     <Container my="2rem">
       <h1>Welcome to the Gatsby starter for Mapbox GL!</h1>
-      <p>test</p>
       <Section>
         <h3>Example: a fixed size map:</h3>
         <Map width="400px" height="400px" />
@@ -30,7 +29,7 @@ const IndexPage = () => (
         <h3>
           Example: a fluid map that fills the container and different styles:
         </h3>
-        <Map height="400px" styles={['dark-v9', 'light-v9']} />
+        <Map height="400px" styles={['cj5baffd71bcf2ro63aiys3qo', 'cjf8jn2jo3tmb2ro16oc6ko3q']} />
       </Section>
 
       <Section>

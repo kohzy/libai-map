@@ -32,7 +32,7 @@ const Basemap = styled.img`
 `
 
 const getSrc = ({ styleID, z, x, y, token }) =>
-  `https://api.mapbox.com/styles/v1/mapbox/${styleID}/tiles/256/${z}/${x}/${y}?access_token=${token}`
+  `https://api.mapbox.com/styles/v1/kohzy/${styleID}/tiles/256/${z}/${x}/${y}?access_token=${token}`
 
 const StyleSelector = ({ map, token, styles, tile, size, onChange }) => {
   console.log('render StyleSelector')
@@ -71,7 +71,7 @@ const StyleSelector = ({ map, token, styles, tile, size, onChange }) => {
       .get('layers')
       .filter(layer => !baseLayers.includes(layer))
 
-    map.setStyle(`mapbox://styles/mapbox/${newBasemap}`)
+    map.setStyle(`mapbox://styles/kohzy/${newBasemap}`)
 
     map.once('style.load', () => {
       console.log('on style update')

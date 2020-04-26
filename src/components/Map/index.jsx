@@ -75,7 +75,7 @@ const Map = ({
 
     const map = new mapboxgl.Map({
       container: mapNode.current,
-      style: `mapbox://styles/mapbox/${styles[0]}`,
+      style: `mapbox://styles/kohzy/${styles[0]}`,
       center: mapCenter,
       zoom: mapZoom,
       minZoom,
@@ -152,7 +152,7 @@ Map.defaultProps = {
   bounds: null,
   minZoom: 0,
   maxZoom: 24,
-  styles: ['light-v9', 'dark-v9', 'streets-v11'],
+  styles: ['cjf8jn2jo3tmb2ro16oc6ko3q', 'cj5baffd71bcf2ro63aiys3qo'],
   padding: 0.1, // padding around bounds as a proportion
   sources: {},
   layers: [],
