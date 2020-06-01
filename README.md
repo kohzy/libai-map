@@ -4,6 +4,9 @@ This is a project to create an interactive accompaniment to the book *The Banish
 
 Li Bai led a nomadic life, moving frequently throughout China as he sought to advance his career. While the book tells a compelling story, some may find it difficult to track the movement of the protagonist without a map. This project aims to create an accompanying tracker to add to the experience of reading the book.
 
+## Hosted site
+This repo automatically builds through Vercel to https://learn-gatsby-mapbox.now.sh/ with each new commit
+
 ## The Data
 The source data of the itinerary to be traced in this interactive map is saved in `src/data/libai-stops.yaml`
 
