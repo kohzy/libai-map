@@ -41,9 +41,6 @@ const IndexPage = () => (
           <li>
             <Link to="/map-full">Full Screen Map</Link>
           </li>
-          <li>
-            <Link to="/map-geojson">Map with GeoJSON</Link>
-          </li>
         </ul>
       </Section>
     </Container>

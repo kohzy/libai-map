@@ -1,11 +1,15 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const googleAnalyticsId = `UA-XXXXX`
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://gatsby-starter-mapbox.netlify.com/`,
-    title: `Gatsby Mapbox GL Starter`,
-    description: `Get up and running quickly with a Gatsby starter that includes a basic setup for Mapbox GL`,
-    author: `Brendan C. Ward`,
+    siteUrl: `https://learn-gatsby-mapbox.now.sh/`,
+    title: `Li Bai Itinerary`,
+    description: `An interactive map tracking Li Bai's travel throughout China, an accompaniment to Ha Jin's book The Banished Immortal`,
+    author: `Kohzy`,
     googleAnalyticsId,
     mapboxToken: process.env.GATSBY_MAPBOX_API_TOKEN,
   },
