@@ -1,0 +1,158 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Suyab (碎葉)",
+        "modern-name": "Chuy Region, Kyrgyzstan",
+        "year": 701,
+        "book-page": 9,
+        "companion": "The Li （李）family"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.199889,
+          42.805222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Qinglian Village (青莲镇), Changming County (昌明), Sichuan (四川)",
+        "modern-name": "Qinglian (青莲镇), Jiangyou County (江油市), Sichuan (四川省)",
+        "year": 705,
+        "book-page": 9,
+        "companion": "The Li （李）family"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.755,
+          31.771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Changping Mountain (长坪山), Zi Prefecture (梓州), Sichuan (四川)",
+        "modern-name": "Changping Mountain (长坪山)， San Tai（三台县）, Sichuan (四川省)",
+        "year": 718,
+        "book-page": 22,
+        "companion": "Zhao Rui （赵蕤）（master）"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.306921,
+          31.649577
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Whitewater Temple (白水寺), Mount Emei (峨眉山), Yi Prefecture (益州), Sichuan (四川)",
+        "modern-name": "Wannian Temple (万年寺), Mount Emei (峨眉山), Leshan（乐山市）, Sichuan (四川省)",
+        "year": 719,
+        "book-page": 28,
+        "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.355485,
+          29.552234
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Chengdu (成都), Yi Prefecture (益州), Sichuan (四川)",
+        "modern-name": "Chengdu (成都市), Sichuan (四川省)",
+        "year": 720,
+        "book-page": 29,
+        "companion": "Dan Sha (丹砂)(page)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.935463,
+          30.658749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Chongqing (重庆), Yu Prefecture (渝州), Sichuan (四川)",
+        "modern-name": "Chongqing (重庆市), Sichuan (四川省)",
+        "year": 720,
+        "book-page": 35,
+        "companion": "Dan Sha (丹砂)(page)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.408470,
+          29.555138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Changming County (昌明), Sichuan (四川)",
+        "modern-name": "Jiangyou County (江油市), Sichuan (四川省)",
+        "year": 720,
+        "book-page": 39,
+        "companion": "The Li (李) family"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.755000,
+          31.771000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Wan County (), Sichuan (四川)",
+        "modern-name": "(), Sichuan (四川省)",
+        "year": 724,
+        "book-page": 49,
+        "companion": "Dan Sha (丹砂)(page)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.755000,
+          31.771000
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "historic-name": "Jiangling (江陵), Jing Prefecture (荆州), Chu (楚) region",
+        "modern-name": "Jiangling County (江陵县), Hubei (湖北省)",
+        "year": 724,
+        "book-page": 51,
+        "companion": "Sima Chengzhen (司馬承正) (Daoist Master), Dan Sha (丹砂)(page)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          112.329979,
+          30.091263
+        ]
+      }
+    }
+  ]
+}

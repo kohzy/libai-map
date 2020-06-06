@@ -27,50 +27,10 @@ const sources = {
         ],
       ],
     },
-  },
-  markers: {
-    type: 'geojson',
-    data: {
-      type: 'FeatureCollection',
-      features: [{
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [-77.032, 38.913]
-        },
-        properties: {
-          title: 'Mapbox',
-          description: 'Washington, D.C.',
-          icon: 'harbor'
-        }
-      },
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [-122.414, 37.776]
-        },
-        properties: {
-          title: 'Mapbox',
-          description: 'San Francisco, California'
-        }
-      }]
-    },
-  },
+  }
 }
 
 const layers = [
-   {
-    id: '2',
-    source: 'markers',
-    type: 'symbol',
-    layout: {
-      'text-field': ['get', 'title'],
-      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-      'text-offset': [0, 0.6],
-      'text-anchor': 'top',
-    },
-  }
 ]
 
 const MapPage = () => {
