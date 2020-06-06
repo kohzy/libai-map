@@ -107,10 +107,8 @@ const Map = ({
       layers.forEach(layer => {
         map.addLayer(layer)
       })
-      
-      const marker = new mapboxgl.Marker()
-        .setLngLat([112.329979, 30.091263])
-        .addTo(map);
+
+
     })
 
     // hook up map events here, such as click, mouseenter, mouseleave

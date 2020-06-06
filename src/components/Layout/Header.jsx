@@ -61,11 +61,8 @@ const Header = () => (
       </Link>
     </Title>
     <NavBar>
-      <NavLink to="/map" activeClassName="nav-active">
-        Map with Sidebar
-      </NavLink>
-      <NavLink to="/map-full" activeClassName="nav-active">
-        Full Screen Map
+      <NavLink to="/explainer" activeClassName="nav-active">
+        About
       </NavLink>
     </NavBar>
   </Wrapper>

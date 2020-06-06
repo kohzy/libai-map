@@ -2,8 +2,16 @@
 * This data was hand-collected by kohzy while reading Ha Jin's book. Certain locations mentioned in the book may have been excluded from the list due to the location being less significant to Li Bai's story.
 * This data only documents the stops that Li Bai took - it does not capture the specific *route* that Li Bai may have taken between the stops, even though Ha Jin may have described it in the book.
 
+---
+
 ## Tools
 * This data follows the [GeoJSON spec](https://geojson.org/) for encoding geographic information
+* Tom MacWright has written a highly readable overview of the GeoJSON spec [here](https://macwright.org/2015/03/23/geojson-second-bite.html#features)
+* I found the following tools useful to compile and validate the GeoJSON data:
+1. [geojson.io tool for collating maps](https://geojson.io/)
+2. [VSCode map preview extension](https://github.com/jumpinjackie/vscode-map-preview)
+
+---
 
 ## Data Spec
 The specific `coordinates` in the GeoJSON data:

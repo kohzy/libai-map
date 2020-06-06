@@ -1,50 +1,44 @@
 import React from 'react'
 
 import Layout from 'components/Layout'
-import { Container } from 'components/Grid'
-import { Link } from 'components/Link'
 import Map from 'components/Map'
-import styled from 'style'
 
-const Section = styled.section`
-  h3 {
-    margin-bottom: 0.25rem;
+import GeoJSONData from 'data/libai-stop.json'
+
+const sources = {
+  libaistops: {
+    type: "geojson",
+    data: GeoJSONData
   }
+}
 
-  &:not(:first-child) {
-    margin-top: 3rem;
+const layers = [{
+  'id': 'points',
+  'type': 'symbol',
+  'source': 'libaistops',
+  'layout': {
+    'icon-image': 'monument-15',
+    // get the title name from the source's "historic-name" property
+    'text-field': ['get', 'historic-name'],
+    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+    'text-offset': [0, 0.6],
+    'text-anchor': 'top'
   }
-`
+  }
+]
 
-const IndexPage = () => (
-  <Layout>
-    <Container my="2rem">
-      <h1>Welcome to the Gatsby starter for Mapbox GL!</h1>
-      <Section>
-        <h3>Example: a fixed size map:</h3>
-        <Map width="400px" height="400px" />
-      </Section>
-
-      <Section>
-        <h3>
-          Example: a fluid map that fills the container and different styles:
-        </h3>
-        <Map height="400px" styles={['cj5baffd71bcf2ro63aiys3qo', 'cjf8jn2jo3tmb2ro16oc6ko3q']} />
-      </Section>
-
-      <Section>
-        <h3>Full page examples:</h3>
-        <ul>
-          <li>
-            <Link to="/map">Map with Sidebar</Link>
-          </li>
-          <li>
-            <Link to="/map-full">Full Screen Map</Link>
-          </li>
-        </ul>
-      </Section>
-    </Container>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout title="Full Screen Map">
+      <Map 
+        sources={sources}
+        layers={layers}
+        center={[104.755, 31.771]}
+        styles={['cj5baffd71bcf2ro63aiys3qo', 'cjf8jn2jo3tmb2ro16oc6ko3q']}
+        zoom={6}
+      />
+    </Layout>
+  )
+}
 
 export default IndexPage

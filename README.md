@@ -8,7 +8,7 @@ Li Bai led a nomadic life, moving frequently throughout China as he sought to ad
 This repo automatically builds through Vercel to https://learn-gatsby-mapbox.now.sh/ with each new commit
 
 ## The Data
-The source data of the itinerary to be traced in this interactive map is saved in `src/data/libai-stops.yaml`
+The source data of the itinerary to be traced in this interactive map is saved in `src/data/libai-stop.geojson`
 
 ## Notes from the Gatsby-Mapbox starter
 This site is based off of the [Gatsby-Mapbox starter made by brendan-ward](https://github.com/brendan-ward/gatsby-starter-mapbox).
