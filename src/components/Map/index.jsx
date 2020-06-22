@@ -1,5 +1,5 @@
 /* eslint-disable max-len, no-underscore-dangle */
-import React, { useEffect, useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -24,6 +24,8 @@ const Map = ({
   height,
   zoom,
   center,
+  bearing,
+  pitch,
   bounds,
   padding,
   styles,
@@ -47,7 +49,7 @@ const Map = ({
 
   // this ref holds the map DOM node so that we can pass it into Mapbox GL
   const mapNode = useRef(null)
-
+ 
   // this ref holds the map object once we have instantiated it, so that we
   // can use it in other hooks
   const mapRef = useRef(null)
@@ -97,7 +99,6 @@ const Map = ({
     }
 
     map.on('load', () => {
-      console.log('map onload')
       // add sources
       Object.entries(sources).forEach(([id, source]) => {
         map.addSource(id, source)
@@ -107,8 +108,6 @@ const Map = ({
       layers.forEach(layer => {
         map.addLayer(layer)
       })
-
-
     })
 
     // hook up map events here, such as click, mouseenter, mouseleave
@@ -137,6 +136,8 @@ Map.propTypes = {
   height: PropTypes.string,
   center: PropTypes.arrayOf(PropTypes.number),
   zoom: PropTypes.number,
+  bearing: PropTypes.number,
+  pitch: PropTypes.number,
   bounds: PropTypes.arrayOf(PropTypes.number),
   minZoom: PropTypes.number,
   maxZoom: PropTypes.number,
@@ -150,7 +151,9 @@ Map.defaultProps = {
   width: 'auto',
   height: '100%',
   center: [0, 0],
-  zoom: 0,
+  zoom: 15,
+  bearing: 30,
+  pitch: 0,
   bounds: null,
   minZoom: 0,
   maxZoom: 24,

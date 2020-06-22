@@ -4,11 +4,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Birth in Suyab",
         "historic-name": "Suyab (碎葉)",
         "modern-name": "Chuy Region, Kyrgyzstan",
         "year": 701,
         "book-page": 9,
-        "companion": "The Li （李）family"
+        "companion": "The Li （李）family",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -21,11 +24,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Growing up in Qinglian",
         "historic-name": "Qinglian Village (青莲镇), Changming County (昌明), Sichuan (四川)",
         "modern-name": "Qinglian (青莲镇), Jiangyou County (江油市), Sichuan (四川省)",
         "year": 705,
         "book-page": 9,
-        "companion": "The Li （李）family"
+        "companion": "The Li （李）family",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -38,11 +44,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Learning from Zhao Rui at Changping Mountain",
         "historic-name": "Changping Mountain (长坪山), Zi Prefecture (梓州), Sichuan (四川)",
         "modern-name": "Changping Mountain (长坪山)， San Tai（三台县）, Sichuan (四川省)",
         "year": 718,
         "book-page": 22,
-        "companion": "Zhao Rui （赵蕤）（master）"
+        "companion": "Zhao Rui （赵蕤）（master)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -55,11 +64,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Learning from Monk Jun at Mount Emei",
         "historic-name": "Whitewater Temple (白水寺), Mount Emei (峨眉山), Yi Prefecture (益州), Sichuan (四川)",
         "modern-name": "Wannian Temple (万年寺), Mount Emei (峨眉山), Leshan（乐山市）, Sichuan (四川省)",
         "year": 719,
         "book-page": 28,
-        "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)"
+        "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -72,11 +84,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Seeking appointment in Chengdu",
         "historic-name": "Chengdu (成都), Yi Prefecture (益州), Sichuan (四川)",
         "modern-name": "Chengdu (成都市), Sichuan (四川省)",
         "year": 720,
         "book-page": 29,
-        "companion": "Dan Sha (丹砂)(page)"
+        "companion": "Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -89,11 +104,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Seeking appointment in Chongqing",
         "historic-name": "Chongqing (重庆), Yu Prefecture (渝州), Sichuan (四川)",
         "modern-name": "Chongqing (重庆市), Sichuan (四川省)",
         "year": 720,
         "book-page": 35,
-        "companion": "Dan Sha (丹砂)(page)"
+        "companion": "Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -106,11 +124,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Back to hometown in Changming",
         "historic-name": "Changming County (昌明), Sichuan (四川)",
         "modern-name": "Jiangyou County (江油市), Sichuan (四川省)",
         "year": 720,
         "book-page": 39,
-        "companion": "The Li (李) family"
+        "companion": "The Li (李) family",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -123,11 +144,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Setting out again in Wan County",
         "historic-name": "Wan County (), Sichuan (四川)",
         "modern-name": "(), Sichuan (四川省)",
         "year": 724,
         "book-page": 49,
-        "companion": "Dan Sha (丹砂)(page)"
+        "companion": "Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 20
       },
       "geometry": {
         "type": "Point",
@@ -140,11 +164,14 @@
     {
       "type": "Feature",
       "properties": {
+        "title": "Visiting Sima Chengzhen",
         "historic-name": "Jiangling (江陵), Jing Prefecture (荆州), Chu (楚) region",
         "modern-name": "Jiangling County (江陵县), Hubei (湖北省)",
         "year": 724,
         "book-page": 51,
-        "companion": "Sima Chengzhen (司馬承正) (Daoist Master), Dan Sha (丹砂)(page)"
+        "companion": "Sima Chengzhen (司馬承正) (Daoist Master), Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
       },
       "geometry": {
         "type": "Point",
