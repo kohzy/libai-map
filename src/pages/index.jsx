@@ -38,7 +38,7 @@ const IndexPage = () => {
         <button onClick={() => {
           setFocus(focus + 1);
           console.log(focus)
-        }}>Fly to Suyab2</button>
+        }}>Fly to next location</button>
       </Timeline>
       <Map2 
         sources={sources}

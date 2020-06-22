@@ -30,6 +30,12 @@ class Map2 extends React.Component {
     this.mapNode = React.createRef();
   }
   componentDidUpdate() {
+      this.map.flyTo({
+        bearing: this.props.bearing,
+        center: this.props.center,
+        zoom: 15.5,
+        pitch: this.props.pitch
+        })
   }
   
   componentDidMount() {
@@ -88,8 +94,6 @@ class Map2 extends React.Component {
   }
 
   render() {
-    const { mapboxToken } = siteMetadata
-
     if (!mapboxToken) {
       console.error(
         'ERROR: Mapbox token is required in gatsby-config.js siteMetadata'
@@ -104,7 +108,6 @@ class Map2 extends React.Component {
     return (
       <Wrapper width={this.props.width} height={this.props.height}>
         <div ref={this.mapNode} style={{ width: '100%', height: '100%' }} />
-        {/* <StyleSelector map={mapRef.current} styles={styles} token={mapboxToken} /> */}
       </Wrapper>
     )
   }
