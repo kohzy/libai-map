@@ -30,7 +30,10 @@ class Map2 extends React.Component {
     this.mapNode = React.createRef();
   }
   componentDidUpdate() {
-      this.map.flyTo({
+    let newData = this.props.activeRoute
+    this.map.getSource('activeRoute').setData(newData)
+
+    this.map.flyTo({
         bearing: this.props.bearing,
         center: this.props.center,
         zoom: 15.5,
@@ -127,13 +130,14 @@ Map2.propTypes = {
   padding: PropTypes.number,
   sources: PropTypes.object,
   layers: PropTypes.arrayOf(PropTypes.object),
+  activeRoute: PropTypes.object,
 }
 
 Map2.defaultProps = {
   width: 'auto',
   height: '100%',
   center: [0, 0],
-  zoom: 15,
+  zoom: 10,
   bearing: 30,
   pitch: 0,
   bounds: null,
@@ -143,6 +147,7 @@ Map2.defaultProps = {
   padding: 0.1, // padding around bounds as a proportion
   sources: {},
   layers: [],
+  activeRoute: 0,
 }
 
 export default Map2

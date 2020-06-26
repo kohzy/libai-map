@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from 'components/Layout'
 import Map from 'components/Map'
 import Sidebar from 'components/Sidebar'
-import { Box, Flex } from 'components/Grid'
+ 
 
 import styled from 'style'
 
