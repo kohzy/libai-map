@@ -2,38 +2,44 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Flex } from 'components/Grid'
+import { Text } from 'rebass'
+import Sidebar from 'components/Sidebar'
+
 import styled, { themeGet } from 'style'
 import styles from "./timeline.module.css"
 
-// This sidebar is responsive: it shrinks a bit in smaller viewports, then eventually expands to fill the full width
-const Wrapper = styled(Flex).attrs({
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  })`
-    padding: 0.75rem 0.5rem;
-    flex: 0 0 auto;
-    border-bottom: 1px solid ${themeGet('colors.grey.900')};
-  `
+const Title = styled(Text).attrs({
+  as: 'h2',
+})`
+  flex-grow: 1;
+  line-height: 1;
+  color: ${themeGet('colors.secondary.500')};
+`
+
+const TimelineText = styled(Text).attrs({
+  as: 'p',
+})`
+  color: ${themeGet('colors.secondary.100')};
+`
 
 const Timeline = ({ children,activeLocation }) => (
-  <Wrapper as="header">
-    <Box 
-      p="1rem"
-      width={[ 1/2 ]}
-    >
+  <Sidebar>
+    <Box>
         {children}
     </Box>
-    <Box
-      width={[ 1 ]}
-    >
-  <h2>{activeLocation.properties.title}</h2>
-  <p>Year: {activeLocation.properties.year}</p>
-  <p>Page in Book: {activeLocation.properties["book-page"]}</p>
-  <p>Historic Name of Location: {activeLocation.properties["historic-name"]}</p>
-  <p>Name of Location Today: {activeLocation.properties["modern-name"]}</p>
-  <p>Companion(s): {activeLocation.properties.companion}</p>
-</Box>
-  </Wrapper>
+    <Box p="2rem">
+      <Title>{activeLocation.properties.title}</Title>
+      <TimelineText>Year: {activeLocation.properties.year}</TimelineText>
+      <TimelineText>Page in Book: {activeLocation.properties["book-page"]}</TimelineText>
+      <TimelineText>Historic Name of Location: {activeLocation.properties["historic-name"]}</TimelineText>
+      <TimelineText>Name of Location Today: {activeLocation.properties["modern-name"]}</TimelineText>
+      <TimelineText>Companion(s): {activeLocation.properties.companion}</TimelineText>
+    </Box>
+    <Box>
+      <img src={activeLocation.properties.thumbnail} />
+    </Box>
+  </Sidebar>
+    
 )
 
 Timeline.propTypes = {

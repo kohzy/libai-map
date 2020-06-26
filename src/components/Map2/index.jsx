@@ -143,7 +143,7 @@ Map2.defaultProps = {
   bounds: null,
   minZoom: 0,
   maxZoom: 24,
-  styles: ['cjf8jn2jo3tmb2ro16oc6ko3q', 'cj5baffd71bcf2ro63aiys3qo'],
+  styles: ['cjf8jn2jo3tmb2ro16oc6ko3q'],
   padding: 0.1, // padding around bounds as a proportion
   sources: {},
   layers: [],

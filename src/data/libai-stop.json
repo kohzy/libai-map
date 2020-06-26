@@ -11,7 +11,8 @@
         "book-page": 9,
         "companion": "The Li （李）family",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "https://asiamountains.net/assets/cache_image/assets/lib/resized/368/1600x1200_0x0_d0b.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -31,7 +32,8 @@
         "book-page": 9,
         "companion": "The Li （李）family",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "https://twgreatdaily.com/images/elastic/W3K/W3Kx_WwBJleJMoPMAE3K.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -51,7 +53,8 @@
         "book-page": 22,
         "companion": "Zhao Rui （赵蕤）（master)",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "https://s9.rr.itc.cn/r/wapChange/20174_14_22/a9jv4y1472528038360.jpeg"
       },
       "geometry": {
         "type": "Point",
@@ -71,7 +74,8 @@
         "book-page": 28,
         "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "http://images.ems517.com/CMS/2017-09/2017-09-07/5bad402b-171e-45c1-80cc-c064febedc4a.jpg"
       },
       "geometry": {
         "type": "Point",

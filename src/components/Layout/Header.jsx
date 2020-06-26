@@ -24,8 +24,10 @@ const Title = styled(Text).attrs({
   flex-grow: 1;
   line-height: 1;
 
+
   & * {
     text-decoration: none;
+    color: ${themeGet('colors.secondary.500')};
   }
 `
 
@@ -35,7 +37,7 @@ const NavBar = styled(Flex).attrs({
   font-size: 1.25rem;
 
   .nav-active {
-    color: ${themeGet('colors.highlight.500')};
+    color: ${themeGet('colors.secondary.500')};
   }
 `
 
@@ -61,9 +63,9 @@ const Header = () => (
       </Link>
     </Title>
     <NavBar>
-      <NavLink to="/explainer" activeClassName="nav-active">
+      {/* <NavLink to="/explainer" activeClassName="nav-active">
         About
-      </NavLink>
+      </NavLink> */}
     </NavBar>
   </Wrapper>
 )
