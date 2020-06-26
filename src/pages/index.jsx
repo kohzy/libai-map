@@ -34,7 +34,7 @@ const layers = [
   source: "route",
   paint: {
     'line-width': 4,
-    'line-color': "#9fbccc"
+    'line-color': "rgba(162, 110, 79, 0.5)"
   }
 },
 {
@@ -42,8 +42,8 @@ const layers = [
   type: "line",
   source: "activeRoute",
   paint: {
-    'line-width': 6,
-    'line-color': "#276ad6"
+    'line-width': 8,
+    'line-color': "#FF7600"
   }
 },
 {
@@ -52,11 +52,18 @@ const layers = [
   source: 'libaistops',
   layout: {
     'icon-image': 'monument-15',
+    'icon-size': 1.5,
     // get the title name from the source's "historic-name" property
     'text-field': ['get', 'title'],
     'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-    'text-offset': [0, 0.6],
-    'text-anchor': 'top'
+    'text-offset': [0, 1],
+    'text-anchor': 'top',
+    'text-size': 20
+    },
+  paint: {
+    'icon-color': "#CBD5F5",
+    'text-halo-color': "#FFFFFF",
+    'text-halo-width': 1.5
   }
   } 
 ]
@@ -99,20 +106,35 @@ const IndexPage = () => {
   
   return (
     <Layout title="Full Screen Map">
-      <Timeline>
-        <button onClick={() => {
-          setFocus(focus + 1);
+      <Timeline 
+        activeLocation={sources.libaistops.data.features[focus]}
+      >
+        <p>
+        <button 
+          onClick={() => {
+            if (focus == sources.libaistops.data.features.length -1) {
+              setFocus(0)
+            } else {
+              setFocus(focus + 1)
+            }
         }}>Fly to next location</button>
+        </p>
+        <p>
+        <button 
+          onClick={() => {
+              setFocus(0)
+            }}>Back to the Start</button>
+        </p>
       </Timeline>
       <Map2 
         sources={sources}
         layers={layers}
         center={sources.libaistops.data.features[focus].geometry.coordinates}
-        styles={['cj5baffd71bcf2ro63aiys3qo', 'cjf8jn2jo3tmb2ro16oc6ko3q']}
+        styles={['ckbwr93pu1e4a1hmw0mltc38t', 'cjf8jn2jo3tmb2ro16oc6ko3q']}
         zoom={10}
         pitch={sources.libaistops.data.features[focus].properties.mapbox_pitch}
         bearing={sources.libaistops.data.features[focus].properties.mapbox_bearing}
-        activeRoute={sources.route.data.features[focus-1]}
+        activeRoute={sources.route.data.features[Math.max(0,focus-1)]}
       />
     </Layout>
   )

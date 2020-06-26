@@ -1,6 +1,5 @@
 /* eslint-disable max-len, no-underscore-dangle */
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -34,9 +33,10 @@ class Map2 extends React.Component {
     this.map.getSource('activeRoute').setData(newData)
 
     this.map.flyTo({
+        speed: 1.75,
         bearing: this.props.bearing,
         center: this.props.center,
-        zoom: 15.5,
+        zoom: this.props.zoom,
         pitch: this.props.pitch
         })
   }

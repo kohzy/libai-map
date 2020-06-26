@@ -146,7 +146,7 @@
       "properties": {
         "title": "Setting out again in Wan County",
         "historic-name": "Wan County (), Sichuan (四川)",
-        "modern-name": "(), Sichuan (四川省)",
+        "modern-name": "?(?), Sichuan (四川省)",
         "year": 724,
         "book-page": 49,
         "companion": "Dan Sha (丹砂)(page)",
@@ -178,6 +178,66 @@
         "coordinates": [
           112.329979,
           30.091263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Seeing Cui Hao's Poem at the Yellow Crane Tower",
+        "historic-name": "Yellow Crane Tower (黄鹤楼), Jiangxia (?), ?",
+        "modern-name": "Yellow Crane Jetty (黄鹤楼), Xinzhou (新洲区), Wuhan (武汉市), Hubei (湖北省)",
+        "year": 725,
+        "book-page": 57,
+        "companion": "Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.293803,
+          30.550314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Watching the Lushan Waterfall",
+        "historic-name": "?",
+        "modern-name": "Lushan (庐山), ?",
+        "year": 725,
+        "book-page": 59,
+        "companion": "Buddhist monks from East Woods Temple, Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.987005,
+          29.560892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Visiting Tao Yuanming's homestead",
+        "historic-name": "Shangjing (上京), ?",
+        "modern-name": "?, ?",
+        "year": 725,
+        "book-page": 59,
+        "companion": "Dan Sha (丹砂)(page)",
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.987005,
+          29.560892
         ]
       }
     }
