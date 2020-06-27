@@ -20,7 +20,7 @@ const DrawerPoemCNChunk = ({ header, body, poemTitle }) => (
             header={header}
             body={body}
         />
-        <p>《{poemTitle}》</p>
+        <Text>《{poemTitle}》</Text>
     </div>
 )
 

@@ -100,7 +100,8 @@
         "book-page": 29,
         "companion": "Dan Sha (丹砂)(page)",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "https://images.businessoffashion.com/site/uploads/2015/04/shutterstock_212559235.jpg"
       },
       "geometry": {
         "type": "Point",
@@ -120,7 +121,8 @@
         "book-page": 35,
         "companion": "Dan Sha (丹砂)(page)",
         "mapbox_bearing": 27,
-        "mapbox_pitch": 20
+        "mapbox_pitch": 20,
+        "thumbnail": "https://cdn.britannica.com/s:700x500/32/100332-050-464D0828/Mixture-buildings-China-Chongqing.jpg"
       },
       "geometry": {
         "type": "Point",

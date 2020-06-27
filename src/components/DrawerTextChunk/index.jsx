@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Text } from 'rebass'
+import { Flex, Column } from 'components/Grid'
 import styled, { themeGet } from 'style'
 
 const Title = styled(Text).attrs({
@@ -21,15 +22,16 @@ const DrawerText = styled(Text).attrs({
   })`
     flex-grow: 1;
     line-height: 1.2;
+    margin-bottom: 0.5rem;
   `
 
 const DrawerTextChunk = ({ header, body }) => (
-    <div>
+    <Column>
         <Title>{header}</Title>
         {body instanceof Array ? body.map(t => 
         <DrawerText>{t}</DrawerText>) : 
         <DrawerText>{body}</DrawerText> }        
-    </div>
+    </Column>
 )
 
 DrawerTextChunk.propTypes = {

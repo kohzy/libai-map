@@ -71,8 +71,8 @@ const layers = [
     },
   paint: {
     'text-color': "rgba(230, 94, 13,0.9)",
-    'text-halo-color': "rgba(255, 255, 255,0.7)",
-    'text-halo-width': 0.3
+    'text-halo-color': "rgba(0, 0, 0,0.8)",
+    'text-halo-width': 1
   }
   } 
 ]

@@ -17,7 +17,7 @@ import styles from "./drawer.module.css"
 
 const Wrapper = styled(Flex).attrs({
 })`
-  margin: 0 2rem;
+  margin: 0 1rem 1rem 1rem;
 `
 
 const Drawer = ({ children,activeLocation,title }) => (
@@ -29,32 +29,26 @@ const Drawer = ({ children,activeLocation,title }) => (
     <Box>
       {children}
     </Box>
-    <Box p="2rem">
-      <DrawerTitleChunk 
-        header={activeLocation.properties.year + "  AD"}
-        body={activeLocation.properties.title}
-      />
-    </Box>
+    <DrawerTitleChunk 
+      header={activeLocation.properties.year}
+      body={activeLocation.properties.title}
+    />
     <Box>
       <img src={activeLocation.properties.thumbnail} />
     </Box>
     <Wrapper>
-    <Box width={1/2}>
       <DrawerTextChunk
         header="Historic Name of Location"
         body={activeLocation.properties["historic-name"]} 
       />
-    </Box>
-    <Box width={1/2}>
       <DrawerTextChunk
         header="Present Name of Location"
         body={activeLocation.properties["modern-name"]} 
       />
-    </Box>
     </Wrapper>
     
     {
-      activeLocation.properties["poem-notable-zh-cn"] ? (<Flex p="2rem">
+      activeLocation.properties["poem-notable-zh-cn"] ? (<Wrapper>
         <Box width={1/2}>
         <DrawerPoemCNChunk
           header="Notable Poem"
@@ -69,19 +63,18 @@ const Drawer = ({ children,activeLocation,title }) => (
           poemTitle={activeLocation.properties["poem-trans-title-hajin-en"]}
         />
     </Box>
-    </Flex>) 
+    </Wrapper>) 
     : null
     }
     
-    
-    <Flex p="2rem">
+    <Wrapper>
       <Box width={1/2}>
         <DrawerTextChunk
           header="Companion(s)"
           body={activeLocation.properties.companion} 
         />
       </Box>
-    </Flex>
+    </Wrapper>
   </Sidebar>
     
 )
