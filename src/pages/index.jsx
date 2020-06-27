@@ -4,6 +4,7 @@ import * as turf from '@turf/turf'
 import Layout from 'components/Layout'
 import { Box, Flex } from 'components/Grid'
 import Drawer from 'components/Drawer'
+import ControlBar from 'components/ControlBar'
 import Map2 from 'components/Map2'
 
 import styled from 'style'
@@ -120,24 +121,24 @@ const IndexPage = () => {
           title= {siteTitle}
           activeLocation={sources.libaistops.data.features[focus]}
         >
-          <Box p="2rem">
-            <p>
-            <button 
-              onClick={() => {
-                if (focus == sources.libaistops.data.features.length -1) {
-                  setFocus(0)
-                } else {
-                  setFocus(focus + 1)
-                }
-            }}>Fly to next location</button>
-            </p>
-            <p>
-            <button 
-              onClick={() => {
-                  setFocus(0)
-                }}>Back to the Start</button>
-            </p>
-          </Box>          
+          <ControlBar 
+            backStartFunc={() => {
+              setFocus(0)
+            }}
+            prevFunc={() => {
+              if (focus == 0) {
+              } else {
+                setFocus(focus - 1)
+              }
+            }}
+            nextFunc={() => {
+              if (focus == sources.libaistops.data.features.length -1) {
+                setFocus(0)
+              } else {
+                setFocus(focus + 1)
+              }
+            }}
+          />       
         </Drawer>
         <Map2 
           sources={sources}

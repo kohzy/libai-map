@@ -6,6 +6,7 @@ import { Text } from 'rebass'
 
 import Sidebar from 'components/Sidebar'
 import Header from './Header.jsx'
+import PageLocationBlock from 'components/PageLocationBlock'
 import DrawerTextChunk from 'components/DrawerTextChunk'
 import DrawerTitleChunk from 'components/DrawerTextChunk/DrawerTitleChunk'
 import DrawerPoemCNChunk from 'components/DrawerTextChunk/DrawerPoemCNChunk'
@@ -18,11 +19,11 @@ import styles from "./drawer.module.css"
 const Drawer = ({ children,activeLocation,title }) => (
   <Sidebar>
     <Header siteTitle={title} />
+    <PageLocationBlock
+      page= {activeLocation.properties["book-page"]}
+    />
     <Box>
-      <Text>pg {activeLocation.properties["book-page"]}</Text>
-    </Box>
-    <Box>
-        {children}
+      {children}
     </Box>
     <Box p="2rem">
       <DrawerTitleChunk 
@@ -42,7 +43,7 @@ const Drawer = ({ children,activeLocation,title }) => (
     </Box>
     <Box width={1/2}>
       <DrawerTextChunk
-        header="Present Name"
+        header="Present Name of Location"
         body={activeLocation.properties["modern-name"]} 
       />
     </Box>

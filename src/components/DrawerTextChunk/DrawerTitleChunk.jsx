@@ -4,19 +4,27 @@ import PropTypes from 'prop-types'
 import { Text } from 'rebass'
 import styled, { themeGet } from 'style'
 
-const Title = styled(Text).attrs({
+const Date = styled(Text).attrs({
     as: 'p',
   })`    
     text-transform: uppercase;
     flex-grow: 1;
     line-height: 1;
-    color: ${themeGet('colors.primary.500')};
+    color: ${themeGet('colors.primary.600')};
+  `
+
+const DrawerTitle = styled(Text).attrs({
+    as: 'h1',
+  })`    
+    text-transform: capitalize;
+    flex-grow: 1;
+    color: ${themeGet('colors.white')};
   `
 
 const DrawerTitleChunk = ({ header, body }) => (
     <div>
-        <Title>{header}</Title>
-        <Text>{body}</Text>
+        <Date>{header}</Date>
+        <DrawerTitle>{body}</DrawerTitle>
     </div>
 )
 

@@ -11,7 +11,7 @@ const Title = styled(Text).attrs({
     text-transform: uppercase;
     flex-grow: 1;
     line-height: 1;
-    color: ${themeGet('colors.primary.500')};
+    color: ${themeGet('colors.primary.600')};
   `
 
 const DrawerPoemCNChunk = ({ header, body, poemTitle }) => (

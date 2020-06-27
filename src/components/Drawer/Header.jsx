@@ -17,12 +17,10 @@ const Wrapper = styled(Flex).attrs({
 `
 
 const Title = styled(Text).attrs({
-  as: 'h1',
+  as: 'h4',
 })`
   margin: 0;
   flex-grow: 1;
-  line-height: 1;
-
 
   & * {
     text-decoration: none;

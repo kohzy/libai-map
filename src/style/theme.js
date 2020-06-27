@@ -53,6 +53,10 @@ const colors = {
     800: '#766a5c',
     900: '#453e36',
   },
+  navy: {
+    900: '#050D52',
+    shadow: 'rgba(2,5,30,0.5)',
+  }
 }
 
 const fonts = {
