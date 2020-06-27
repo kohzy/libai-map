@@ -9,7 +9,9 @@ const Wrapper = styled(Box).attrs({
   width: ['100%', '350px', '370px'],
   flex: '0 0 auto',
 })`
-  border-right: 1px solid ${themeGet('colors.grey.800')};
+  border-right: 1px solid ${themeGet('colors.black')};
+  box-shadow: 2px 1px 5px 5px rgba(0,0,0,0.5);
+  z-index: 1;
   height: 100%;
 `
 

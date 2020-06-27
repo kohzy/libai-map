@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text } from 'rebass'
-import { FaGlobeAmericas as SiteLogo } from 'react-icons/fa'
 
 import { Link } from 'components/Link'
 
@@ -53,14 +52,7 @@ const NavLink = styled(Link)`
 const Header = () => (
   <Wrapper as="header">
     <Title>
-      <Link to="/">
-        <Flex alignItems="center" flexWrap="wrap">
-          <Box mr="0.5rem">
-            <SiteLogo />
-          </Box>
-          {siteMetadata.title}
-        </Flex>
-      </Link>
+      <Box p="1rem">{siteMetadata.title}</Box>
     </Title>
     <NavBar>
       {/* <NavLink to="/explainer" activeClassName="nav-active">

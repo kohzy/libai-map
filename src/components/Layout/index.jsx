@@ -6,7 +6,6 @@ import { Flex } from 'components/Grid'
 import styled, { ThemeProvider, theme } from 'style'
 import { isUnsupported } from 'util/dom'
 import UnsupportedBrowser from './UnsupportedBrowser'
-import Header from './Header'
 
 const Wrapper = styled(Flex).attrs({ flexDirection: 'column' })`
   height: 100%;
@@ -24,7 +23,6 @@ const Layout = ({ children, title }) => {
       ) : (
         <Wrapper>
           <SEO title={title} />
-          <Header siteTitle={title} />
           <Content>{children}</Content>
         </Wrapper>
       )}

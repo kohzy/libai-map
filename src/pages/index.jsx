@@ -3,7 +3,7 @@ import * as turf from '@turf/turf'
 
 import Layout from 'components/Layout'
 import { Box, Flex } from 'components/Grid'
-import Timeline from 'components/Timeline/timeline'
+import Drawer from 'components/Drawer'
 import Map2 from 'components/Map2'
 
 import styled from 'style'
@@ -111,11 +111,13 @@ sources.activeRoute.data = sources.route.data.features[0]
 const IndexPage = () => {
 
   const [ focus, setFocus ] = useState(0)
+  const siteTitle = "Following the Banished Immortal"
   
   return (
-    <Layout title="Full Screen Map">
+    <Layout title= {siteTitle}>
       <Wrapper>
-        <Timeline 
+        <Drawer 
+          title= {siteTitle}
           activeLocation={sources.libaistops.data.features[focus]}
         >
           <Box p="2rem">
@@ -136,7 +138,7 @@ const IndexPage = () => {
                 }}>Back to the Start</button>
             </p>
           </Box>          
-        </Timeline>
+        </Drawer>
         <Map2 
           sources={sources}
           layers={layers}
