@@ -115,16 +115,6 @@ const IndexPage = () => {
   return (
     <Layout title="Full Screen Map">
       <Wrapper>
-        <Map2 
-          sources={sources}
-          layers={layers}
-          center={sources.libaistops.data.features[focus].geometry.coordinates}
-          styles={['ckbwr93pu1e4a1hmw0mltc38t']}
-          zoom={10}
-          pitch={sources.libaistops.data.features[focus].properties.mapbox_pitch}
-          bearing={sources.libaistops.data.features[focus].properties.mapbox_bearing}
-          activeRoute={sources.route.data.features[Math.max(0,focus-1)]}
-        />
         <Timeline 
           activeLocation={sources.libaistops.data.features[focus]}
         >
@@ -147,6 +137,16 @@ const IndexPage = () => {
             </p>
           </Box>          
         </Timeline>
+        <Map2 
+          sources={sources}
+          layers={layers}
+          center={sources.libaistops.data.features[focus].geometry.coordinates}
+          styles={['ckbwr93pu1e4a1hmw0mltc38t']}
+          zoom={10}
+          pitch={sources.libaistops.data.features[focus].properties.mapbox_pitch}
+          bearing={sources.libaistops.data.features[focus].properties.mapbox_bearing}
+          activeRoute={sources.route.data.features[Math.max(0,focus-1)]}
+        />
       </Wrapper>
     </Layout>
   )
