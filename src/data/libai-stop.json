@@ -73,6 +73,10 @@
         "year": 719,
         "book-page": 28,
         "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)",
+        "poem-notable-zh-cn": "蜀僧抱绿绮,西下峨眉峰。<br>为我挥一手,如听万壑松。<br>客心洗流水,余响入霜钟。<br>不觉碧山暮,秋云暗几重。",
+        "poem-notable-title-zh-cn": "听蜀僧濬弹琴",
+        "poem-trans-hajin-en": "The monk in Shu holds his lute, <br> Sitting below the peak of Emei Mountain, <br> For me, he plucks away while I hear, <br> The wind shaking the pines in the valley. <br> My soul is again cleansed afresh <br> As the lingering sound is still touching. <br> The bell glazed with autumn frost. <br> I haven't noticed the green mountain <br> Cloaked in the sunset as the clouds <br> Turn darker than a moment ago.",
+        "poem-trans-title-hajin-en": "Listening to Monk Jun Play the Lute",
         "mapbox_bearing": 27,
         "mapbox_pitch": 20,
         "thumbnail": "http://images.ems517.com/CMS/2017-09/2017-09-07/5bad402b-171e-45c1-80cc-c064febedc4a.jpg"
@@ -148,12 +152,16 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Setting out again in Wan County",
+        "title": "Travelling through Chu and Wu Enroute to Seeking a Post",
         "historic-name": "Wan County (), Sichuan (四川)",
         "modern-name": "?(?), Sichuan (四川省)",
         "year": 724,
         "book-page": 49,
         "companion": "Dan Sha (丹砂)(page)",
+        "poem-notable-zh-cn": "峨眉山月半轮秋，<br>影入平羌江水流。<br>夜发清溪向三峡，<br>思君不见下渝州",
+        "poem-notable-title-zh-cn": "峨眉山月歌",
+        "poem-trans-hajin-en": "The autumn moon is rising, halfway out of Emei Mountain, <br> Its shadows floating on the Qiang's currents. <br> Tonight we left Qingxi, heading for the Three Gorges, <br> And I miss you, but have to sail down to Yuzhou.",
+        "poem-trans-title-hajin-en": "Song of the Emei Moon",
         "mapbox_bearing": 27,
         "mapbox_pitch": 20
       },
@@ -196,7 +204,7 @@
         "companion": "Dan Sha (丹砂)(page)",
         "poem-notable-zh-cn": "日照香炉生紫烟，<br>遥看瀑布挂前川。<br>飞流直下三千尺，<br>疑是银河落九天",
         "poem-notable-title-zh-cn": "望庐山瀑布",
-        "poem-trans-hajin-en": "The sun shines on the Burner Peak, raising purple smoke, <br>Look",
+        "poem-trans-hajin-en": "The sun shines on the Burner Peak, raising purple smoke, <br>Look, far away a waterfall hangs on the river ahead, <br> Its stream flying down three thousand feet. <br> I wonder if it's the Milky Way descending from heaven.",
         "poem-trans-title-hajin-en": "Watching the Lushan Waterfall",
         "mapbox_bearing": 27,
         "mapbox_pitch": 45

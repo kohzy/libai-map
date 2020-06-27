@@ -16,6 +16,8 @@
 ## Data Spec
 The specific `coordinates` in the GeoJSON data:
 * The long lat data was collected primarily from Wikipedia ([e.g. Suyab](https://tools.wmflabs.org/geohack/geohack.php?pagename=Suyab&params=42_48_18.8_N_75_11_59.6_E_type:landmark)), in [Decimal Degrees](https://en.wikipedia.org/wiki/Decimal_degrees)
+* `mapbox_bearing`
+* `mapbox_pitch`
 
 The following custom `properties` are included in the GeoJSON data:
 * `historic-name`: This documents the historic name of the location, during the time of Li Bai. I mostly use the name presented by Ha Jin in the book.
@@ -23,3 +25,7 @@ The following custom `properties` are included in the GeoJSON data:
 * `year`: This refers to the year when Li Bai stops at this particular location. Where a specific year is not noted by Ha Jin, I include the likely range. All years in AD.
 * `book-page`: This refers to the page where the location of Li Bai's stop is first noted. It corresponds to a page in the 2019 paperback copy of Ha Jin's book. I am not certain how it lines up to other editions of this book (e.g. Kindle or hardcover)
 * `companion`: This documents notable figures who were with Li Bai at a particular stop. There are other figures described who Li Bai interacted with, but I chose to only include figures who had a significant impact on Li Bai's journey.
+* `poem-notable-zh-cn`
+* `poem-notable-title-zh-cn`
+* `poem-trans-hajin-en`
+* `poem-trans-title-hajin-en`

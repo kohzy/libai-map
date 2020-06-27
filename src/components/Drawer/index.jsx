@@ -8,6 +8,8 @@ import Sidebar from 'components/Sidebar'
 import Header from './Header.jsx'
 import DrawerTextChunk from 'components/DrawerTextChunk'
 import DrawerTitleChunk from 'components/DrawerTextChunk/DrawerTitleChunk'
+import DrawerPoemCNChunk from 'components/DrawerTextChunk/DrawerPoemCNChunk'
+import DrawerPoemENChunk from 'components/DrawerTextChunk/DrawerPoemENChunk'
 
 import styled, { themeGet } from 'style'
 import styles from "./drawer.module.css"
@@ -24,7 +26,7 @@ const Drawer = ({ children,activeLocation,title }) => (
     </Box>
     <Box p="2rem">
       <DrawerTitleChunk 
-        header="725 AD"
+        header={activeLocation.properties.year + " AD"}
         body={activeLocation.properties.title}
       />
     </Box>
@@ -45,23 +47,32 @@ const Drawer = ({ children,activeLocation,title }) => (
       />
     </Box>
     </Flex>
+    
+    {
+      activeLocation.properties["poem-notable-zh-cn"] ? (<Flex p="2rem">
+        <Box width={1/2}>
+        <DrawerPoemCNChunk
+          header="Notable Poem"
+          body={activeLocation.properties["poem-notable-zh-cn"]}
+          poemTitle={activeLocation.properties["poem-notable-title-zh-cn"]} 
+        />
+      </Box>
+      <Box width={1/2}>
+        <DrawerPoemENChunk
+          header="Translated"
+          body={activeLocation.properties["poem-trans-hajin-en"]}
+          poemTitle={activeLocation.properties["poem-trans-title-hajin-en"]}
+        />
+    </Box>
+    </Flex>) 
+    : null
+    }
+    
+    
     <Flex p="2rem">
       <Box width={1/2}>
         <DrawerTextChunk
-          header="Year"
-          body={activeLocation.properties.year} 
-        />
-      </Box>
-      <Box width={1/2}>
-        <DrawerTextChunk
           header="Companion(s)"
-          body={activeLocation.properties.companion} 
-        />
-      </Box>
-    </Flex>
-    <Flex>
-      <Box>
-        <DrawerTextChunk
           body={activeLocation.properties.companion} 
         />
       </Box>
@@ -84,9 +95,7 @@ Drawer.defaultProps = {
       "historic-name": "Default historic name",
       "modern-name": "Default modern name",
       year: 2020,
-      "book-page": 999,
-      "companion": "Default companion"
-    }
+      "book-page": 999,    }
   },
   title: "Default Title"
 }
