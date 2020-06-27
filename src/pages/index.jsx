@@ -51,7 +51,7 @@ const layers = [
   type: "line",
   source: "activeRoute",
   paint: {
-    'line-width': 8,
+    'line-width': 10,
     'line-color': "#FF7600"
   }
 },
