@@ -12,6 +12,7 @@
         "companion": "The Li （李）family",
         "mapbox_bearing": 27,
         "mapbox_pitch": 20,
+        "mapbox_zoom": 5,
         "thumbnail": "https://asiamountains.net/assets/cache_image/assets/lib/resized/368/1600x1200_0x0_d0b.jpg"
       },
       "geometry": {
@@ -73,7 +74,7 @@
         "year": 719,
         "book-page": 28,
         "companion": "Guang Jun (广浚/蜀僧浚) (monk), Dan Sha (丹砂)(page)",
-        "poem-notable-zh-cn": "蜀僧抱绿绮,西下峨眉峰。<br>为我挥一手,如听万壑松。<br>客心洗流水,余响入霜钟。<br>不觉碧山暮,秋云暗几重。",
+        "poem-notable-zh-cn": ["蜀僧抱绿绮,西下峨眉峰。","为我挥一手,如听万壑松。","客心洗流水,余响入霜钟。","不觉碧山暮,秋云暗几重。"],
         "poem-notable-title-zh-cn": "听蜀僧濬弹琴",
         "poem-trans-hajin-en": "The monk in Shu holds his lute, <br> Sitting below the peak of Emei Mountain, <br> For me, he plucks away while I hear, <br> The wind shaking the pines in the valley. <br> My soul is again cleansed afresh <br> As the lingering sound is still touching. <br> The bell glazed with autumn frost. <br> I haven't noticed the green mountain <br> Cloaked in the sunset as the clouds <br> Turn darker than a moment ago.",
         "poem-trans-title-hajin-en": "Listening to Monk Jun Play the Lute",

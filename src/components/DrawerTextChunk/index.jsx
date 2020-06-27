@@ -26,13 +26,18 @@ const DrawerText = styled(Text).attrs({
 const DrawerTextChunk = ({ header, body }) => (
     <div>
         <Title>{header}</Title>
-        <DrawerText>{body}</DrawerText>
+        {body instanceof Array ? body.map(t => 
+        <DrawerText>{t}</DrawerText>) : 
+        <DrawerText>{body}</DrawerText> }        
     </div>
 )
 
 DrawerTextChunk.propTypes = {
   header: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]).isRequired,
 }
 
 DrawerTextChunk.defaultProps = {

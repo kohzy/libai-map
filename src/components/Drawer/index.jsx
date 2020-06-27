@@ -15,6 +15,10 @@ import DrawerPoemENChunk from 'components/DrawerTextChunk/DrawerPoemENChunk'
 import styled, { themeGet } from 'style'
 import styles from "./drawer.module.css"
 
+const Wrapper = styled(Flex).attrs({
+})`
+  margin: 0 2rem;
+`
 
 const Drawer = ({ children,activeLocation,title }) => (
   <Sidebar>
@@ -27,14 +31,14 @@ const Drawer = ({ children,activeLocation,title }) => (
     </Box>
     <Box p="2rem">
       <DrawerTitleChunk 
-        header={activeLocation.properties.year + " AD"}
+        header={activeLocation.properties.year + "  AD"}
         body={activeLocation.properties.title}
       />
     </Box>
     <Box>
       <img src={activeLocation.properties.thumbnail} />
     </Box>
-    <Flex p="2rem">
+    <Wrapper>
     <Box width={1/2}>
       <DrawerTextChunk
         header="Historic Name of Location"
@@ -47,7 +51,7 @@ const Drawer = ({ children,activeLocation,title }) => (
         body={activeLocation.properties["modern-name"]} 
       />
     </Box>
-    </Flex>
+    </Wrapper>
     
     {
       activeLocation.properties["poem-notable-zh-cn"] ? (<Flex p="2rem">

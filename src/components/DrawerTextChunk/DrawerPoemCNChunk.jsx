@@ -26,7 +26,7 @@ const DrawerPoemCNChunk = ({ header, body, poemTitle }) => (
 
 DrawerPoemCNChunk.propTypes = {
   header: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.array.isRequired,
   poemTitle: PropTypes.string.isRequred,
 }
 

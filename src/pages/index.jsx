@@ -145,7 +145,7 @@ const IndexPage = () => {
           layers={layers}
           center={sources.libaistops.data.features[focus].geometry.coordinates}
           styles={['ckbwr93pu1e4a1hmw0mltc38t']}
-          zoom={10}
+          zoom={sources.libaistops.data.features[focus].properties.mapbox_zoom}
           pitch={sources.libaistops.data.features[focus].properties.mapbox_pitch}
           bearing={sources.libaistops.data.features[focus].properties.mapbox_bearing}
           activeRoute={sources.route.data.features[Math.max(0,focus-1)]}

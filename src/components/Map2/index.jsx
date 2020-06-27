@@ -32,8 +32,8 @@ class Map2 extends React.Component {
     let newData = this.props.activeRoute
     this.map.getSource('activeRoute').setData(newData)
 
-    this.map.flyTo({
-        speed: 1.75,
+    this.map.easeTo({
+        duration: 5000,
         bearing: this.props.bearing,
         center: this.props.center,
         zoom: this.props.zoom,
