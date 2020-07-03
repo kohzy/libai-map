@@ -6,7 +6,7 @@ import styled, { themeGet } from 'style'
 
 // This sidebar is responsive: it shrinks a bit in smaller viewports, then eventually expands to fill the full width
 const Wrapper = styled(Box).attrs({
-  width: ['100%', '350px', '370px'],
+  width: ['100%', '350px', '450px'],
   flex: '0 0 auto',
 })`
   box-shadow: 2px 1px 5px 5px ${themeGet('colors.navy.shadow')};

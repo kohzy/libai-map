@@ -9,6 +9,7 @@ import Map2 from 'components/Map2'
 
 import styled from 'style'
 
+import { siteMetadata } from '../../gatsby-config'
 import GeoJSONData from 'data/libai-stop.json'
 
 // this wrapper needs to be 100% to force map and sidebar to fill the full space
@@ -112,13 +113,13 @@ sources.activeRoute.data = sources.route.data.features[0]
 const IndexPage = () => {
 
   const [ focus, setFocus ] = useState(0)
-  const siteTitle = "Following the Banished Immortal"
   
   return (
-    <Layout title= {siteTitle}>
+    <Layout title={siteMetadata.title}>
       <Wrapper>
-        <Drawer 
-          title= {siteTitle}
+        <Drawer
+          title={siteMetadata.title}
+          subheader={siteMetadata.subheader}
           activeLocation={sources.libaistops.data.features[focus]}
         >
           <ControlBar 

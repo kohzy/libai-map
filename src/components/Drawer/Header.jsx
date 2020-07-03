@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text } from 'rebass'
+import PropTypes from 'prop-types'
 
-import { Link } from 'components/Link'
+import { Text } from 'rebass'
 
 import { Box, Flex } from 'components/Grid'
 import styled, { themeGet } from 'style'
@@ -28,36 +28,24 @@ const Title = styled(Text).attrs({
   }
 `
 
-const NavBar = styled(Flex).attrs({
-  alignItems: 'center',
-})`
-  font-size: 1.25rem;
-
-  .nav-active {
-    color: ${themeGet('colors.secondary.500')};
-  }
-`
-
-const NavLink = styled(Link)`
-  text-decoration: none;
-  padding: 0 0.5rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`
-
-const Header = () => (
+const Header = ({ siteTitle,siteSubheader }) => (
   <Wrapper as="header">
     <Title>
-      <Box p="1rem">{siteMetadata.title}</Box>
+      <Box p="1rem">{siteTitle}</Box>
+      <Box p="1rem">{siteSubheader}</Box>
     </Title>
-    <NavBar>
-      {/* <NavLink to="/explainer" activeClassName="nav-active">
-        About
-      </NavLink> */}
-    </NavBar>
   </Wrapper>
 )
+
+
+Header.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+  siteSubheader: PropTypes.string.isRequired,
+}
+
+Header.defaultProps = {
+  siteTitle: "Default Title",
+  siteSubheader: "Default Subheader"
+}
 
 export default Header

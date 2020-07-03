@@ -7,7 +7,8 @@ const googleAnalyticsId = `UA-XXXXX`
 module.exports = {
   siteMetadata: {
     siteUrl: `https://learn-gatsby-mapbox.now.sh/`,
-    title: `Following the Banished Immortal: Li Bai's Wanderings Through China`,
+    title: `Following the Banished Immortal`,
+    subheader: `Li Bai's Wanderings Through China`,
     description: `An interactive map tracking Li Bai's travel throughout China, an accompaniment to Ha Jin's book The Banished Immortal`,
     author: `Kohzy`,
     googleAnalyticsId,

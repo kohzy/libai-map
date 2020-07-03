@@ -20,9 +20,9 @@ const Wrapper = styled(Flex).attrs({
   margin: 0 1rem 1rem 1rem;
 `
 
-const Drawer = ({ children,activeLocation,title }) => (
-  <Sidebar>
-    <Header siteTitle={title} />
+const Drawer = ({ children,activeLocation,title,subheader }) => (
+  <Sidebar allowScroll={true}>
+    <Header siteTitle={title} siteSubheader={subheader} />
     <PageLocationBlock
       page= {activeLocation.properties["book-page"]}
     />
@@ -76,13 +76,13 @@ const Drawer = ({ children,activeLocation,title }) => (
       </Box>
     </Wrapper>
   </Sidebar>
-    
 )
 
 Drawer.propTypes = {
   children: PropTypes.node.isRequired,
   activeLocation: PropTypes.object,
   title: PropTypes.string.isRequired,
+  subheader: PropTypes.string,
 }
 
 Drawer.defaultProps = {

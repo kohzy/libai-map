@@ -23,13 +23,22 @@ const DrawerText = styled(Text).attrs({
     flex-grow: 1;
     line-height: 1.2;
     margin-bottom: 0.5rem;
-  `
+`
+
+const PoemENText = styled(Text).attrs({
+  as: 'p',
+})`
+  font-style: italic;
+  flex-grow: 1;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+`
 
 const DrawerTextChunk = ({ header, body }) => (
     <Column>
         <Title>{header}</Title>
         {body instanceof Array ? body.map(t => 
-        <DrawerText>{t}</DrawerText>) : 
+        <PoemENText>{t}</PoemENText>) : 
         <DrawerText>{body}</DrawerText> }        
     </Column>
 )
