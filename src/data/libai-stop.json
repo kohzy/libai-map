@@ -246,7 +246,7 @@
       "type": "Feature",
       "properties": {
         "title": "Seeing Cui Hao's Poem at the Yellow Crane Tower",
-        "historic-name": "Yellow Crane Tower (黄鹤楼), Jiangxia (?), ?",
+        "historic-name": "Yellow Crane Tower (黄鹤楼), Jiangxia (江夏)",
         "modern-name": "Yellow Crane Jetty (黄鹤楼), Xinzhou (新洲区), Wuhan (武汉市), Hubei (湖北省)",
         "year": 725,
         "book-page": 57,
@@ -300,8 +300,8 @@
       "type": "Feature",
       "properties": {
         "title": "Visiting Tao Yuanming's homestead",
-        "historic-name": "Shangjing (上京), ?",
-        "modern-name": "?, ?",
+        "historic-name": "Shangjing hamlet (上京)",
+        "modern-name": "Jiujiang (九江市), Jiangxi Province (江西省)",
         "year": 725,
         "book-page": 59,
         "companion": [
@@ -313,8 +313,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          115.987005,
-          29.560892
+          116.028887,
+          29.676024
         ]
       }
     },
@@ -717,7 +717,8 @@
           "Emperor Tang Xuanzong (唐玄宗)",
           "Lady Yang (杨贵妃)",
           "Chancellor Li Linfu (李林甫)",
-          "Gao Lishi (高力士)(head eunuch)"
+          "Gao Lishi (高力士)(head eunuch)",
+          "Guo Ziyi (郭子儀)(general)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
@@ -1042,7 +1043,7 @@
         "modern-name": "Jiujiang (九江市), Jiangxi Province (江西省)",
         "year": 757,
         "book-page": 265,
-        "companion": ["Wei Zichun ()", "Song Ruosi ()", "Miss Zong (宗氏)(wife)"],
+        "companion": ["Wei Zichun (韦子春)", "Song Ruosi (宋若思)", "Miss Zong (宗氏)(wife)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
       },
