@@ -53,11 +53,11 @@
       "properties": {
         "title": "Learning from Zhao Rui at Changping Mountain",
         "historic-name": "Changping Mountain (长坪山), Zi Prefecture (梓州), Sichuan (四川)",
-        "modern-name": "Changping Mountain (长坪山)， San Tai（三台县）, Sichuan (四川省)",
+        "modern-name": "Changping Mountain (长坪山)， San Tai (三台县), Sichuan (四川省)",
         "year": 718,
         "book-page": 22,
         "companion": [
-          "Zhao Rui （赵蕤）（master)"
+          "Zhao Rui （赵蕤) (master)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 20,
@@ -76,11 +76,11 @@
       "properties": {
         "title": "Learning from Monk Jun at Mount Emei",
         "historic-name": "Whitewater Temple (白水寺), Mount Emei (峨眉山), Yi Prefecture (益州), Sichuan (四川)",
-        "modern-name": "Wannian Temple (万年寺), Mount Emei (峨眉山), Leshan（乐山市）, Sichuan (四川省)",
+        "modern-name": "Wannian Temple (万年寺), Mount Emei (峨眉山), Leshan (乐山市), Sichuan (四川省)",
         "year": 719,
         "book-page": 28,
         "companion": [
-          "Guang Jun (广浚/蜀僧浚) (monk)",
+          "Guang Jun (广浚/蜀僧浚)(monk)",
           "Dan Sha (丹砂)(page)"
         ],
         "poem-notable-zh-cn": [
@@ -187,8 +187,8 @@
       "type": "Feature",
       "properties": {
         "title": "Travelling through Chu and Wu Enroute to Seeking a Post",
-        "historic-name": "Wan County (), Sichuan (四川)",
-        "modern-name": "?(?), Sichuan (四川省)",
+        "historic-name": "Wan County (万), Sichuan (四川)",
+        "modern-name": "Wanzhou District (万州区), Chonqing Municipality (重庆市)",
         "year": 724,
         "book-page": 49,
         "companion": [
@@ -214,8 +214,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          104.755,
-          31.771
+          108.292027,
+          30.816994
         ]
       }
     },
@@ -250,7 +250,7 @@
         "modern-name": "Yellow Crane Jetty (黄鹤楼), Xinzhou (新洲区), Wuhan (武汉市), Hubei (湖北省)",
         "year": 725,
         "book-page": 57,
-        "companion": "Dan Sha (丹砂)(page)",
+        "companion": ["Dan Sha (丹砂)(page)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
       },
@@ -265,12 +265,12 @@
     {
       "type": "Feature",
       "properties": {
-        "title": "Watching the Lushan Waterfall",
-        "historic-name": "?",
-        "modern-name": "Lushan (庐山), ?",
+        "title": "Wandering East with Friends",
+        "historic-name": "Mount Lu (庐山), Jiujiang (九江)",
+        "modern-name": "Mount Lu (庐山), Jiujiang (九江市), Jiangxi Province (江西省)",
         "year": 725,
         "book-page": 59,
-        "companion": "Buddhist monks from East Woods Temple, Dan Sha (丹砂)(page)",
+        "companion": ["Buddhist monks from East Woods Temple","Dan Sha (丹砂)(page)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
         "poem-trans-title-hajin-en": "Watching the Lushan Waterfall",
@@ -370,7 +370,7 @@
         "modern-name": "Yangzhou (扬州市), Jiangsu (江苏省)",
         "year": 726,
         "book-page": 67,
-        "companion": "Dan Sha (丹砂)(page),Meng Rong (孟荣)",
+        "companion": ["Dan Sha (丹砂)(page)","Meng Rong (孟荣)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
         "poem-trans-title-hajin-en": "Reflection in a Quiet Night",
@@ -410,6 +410,7 @@
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
+        "mapbox_zoom": 15,
         "poem-trans-title-hajin-en": "For Meng Haoran",
         "poem-trans-hajin-en": [
           "I love Master Meng,",
@@ -449,7 +450,7 @@
         "modern-name": "Anlu (安陆市), Hubei Province (湖北省)",
         "year": 726,
         "book-page": 73,
-        "companion": "Dan Sha (丹砂)(page),Yuan Danqiu (元丹丘),Miss Xu (wife),Xu Family (in-laws),Meng Haoran (孟浩然)",
+        "companion": ["Dan Sha (丹砂)(page)","Yuan Danqiu (元丹丘)","Miss Xu (許)(wife)","Xu Family (許)(in-laws)","Meng Haoran (孟浩然)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
         "poem-trans-title-hajin-en": "At Yellow Crane Tower, Seeing Meng Haoran Leaving for Guangling",
@@ -479,8 +480,8 @@
       "type": "Feature",
       "properties": {
         "title": "Seeking Civil Service in the Capital",
-        "historic-name": "Chang'an",
-        "modern-name": "Xi'an",
+        "historic-name": "Chang'an (长安)",
+        "modern-name": "Xi'an (西安), Shaanxi Province (陕西省)",
         "year": 730,
         "book-page": 91,
         "mapbox_bearing": 27,
@@ -506,7 +507,7 @@
         "mapbox_pitch": 45,
         "companion": [
           "Li Can (李粲)(Prefect of Binzhou)",
-          "Wang Song ()(councilor in Fangzhou)",
+          "Wang Song (councilor in Fangzhou)",
           "Hu Si (斛斯)(local farmer)"
         ]
       },
@@ -526,7 +527,7 @@
         "year": 733,
         "title": "Returning to His Wife, Disappointed",
         "book-page": 114,
-        "companion": "Miss Xu (wife),Xu Family (in-laws),Meng Haoran (孟浩然)",
+        "companion": ["Miss Xu (許)(wife)","Xu Family (許)(in-laws)","Meng Haoran (孟浩然)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
       },
@@ -547,12 +548,10 @@
         "title": "Dissuaded from military service at the northern frontier",
         "book-page": 118,
         "companion": [
-          "General Yuan",
-          "Yuan Yan ()"
+          "Yuan Yan (元演)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
-        "mapbox_zoom": "",
         "thumbnail": "",
         "poem-notable-zh-cn": [
           "代马不思越",
@@ -571,14 +570,28 @@
           "白首没三边?"
         ],
         "poem-notable-title-zh-cn": "古风其六",
-        "poem-trans-hajin-en": 1,
-        "poem-trans-title-hajin-en": 1
+        "poem-trans-hajin-en": ["The northern horses don't think of the south",
+        "Where animals cannot long for the north.",
+        "Their indigenous habitats have shaped",
+        "Their habits and lives.",
+        "Long ago we came out of Goose Pass",
+        "And ever since have stayed in the barbarous land.",
+        "Sandstorms distort the view of the sun and the steppes",
+        "And flying snow blocks the foreign sky.",
+        "Lice infest our clothes and leather mail,",
+        "Yet we resolve to keep our banners aloft.",
+        "So many bitter battles won but without rewards",
+        "Our devotion never recognized.",
+        "Who has ever taken pity on General Li the Swift,",
+        "Who lost his white head in the desert?"
+      ],
+        "poem-trans-title-hajin-en": "Ancient Songs 6"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          112.54394531249999,
-          37.82280243352756
+          112.262390,
+          37.863505
         ]
       }
     },
@@ -630,8 +643,8 @@
         "year": 739,
         "book-page": 137,
         "companion": [
-          "Miss Xu (wife)",
-          "Pingyang (daughter)"
+          "Miss Xu (許)(wife)",
+          "Pingyang (平阳)(daughter)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
@@ -639,8 +652,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          113.67382049560545,
-          31.2562
+          113.668467,
+          31.252473
         ]
       }
     },
@@ -653,15 +666,15 @@
         "year": 740,
         "book-page": 141,
         "companion": [
-          "Miss Xu (wife)",
-          "Pingyang (daughter)",
-          "Boqin (son)",
+          "Miss Xu (許)(wife)",
+          "Pingyang (平阳)(daughter)",
+          "Boqin (伯禽)(son)",
           "Dan Sha (丹砂)(servant)",
           "General Pei Hao (裴旻)",
           "Wu Daozi (吴道子)",
           "Feng Seven (local official)",
-          "Liu (second partner)",
-          "Woman of Lu (third partner)"
+          "Liu (刘氏) (second partner)",
+          "Woman of Lu (鲁一妇女) (third partner)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
@@ -692,19 +705,19 @@
       "type": "Feature",
       "properties": {
         "title": "Emperor Xuanzong summons Li to the Imperial Academy",
-        "historic-name": "Chang'an",
+        "historic-name": "Chang'an (长安)",
         "modern-name": "Xi'an (西安市), Shaanxi Province (陕西省)",
         "year": 742,
         "book-page": 164,
         "companion": [
-          "He Zhizhang ()(poet)",
-          "Zhang Xu ()(calligrapher)",
-          "Prince Li Jin ()",
-          "Cui Zhongzhi ()(poet)",
-          "Emperor Tang Xuanzong ()",
-          "Lady Yang ()",
-          "Chancellor Li Linfu ()",
-          "Gao Lishi ()(head eunuch)"
+          "He Zhizhang (贺知章)(poet)",
+          "Zhang Xu (張旭)(calligrapher)",
+          "Prince Li Jin (李璡)",
+          "Cui Zhongzhi (崔宗之)(poet)",
+          "Emperor Tang Xuanzong (唐玄宗)",
+          "Lady Yang (杨贵妃)",
+          "Chancellor Li Linfu (李林甫)",
+          "Gao Lishi (高力士)(head eunuch)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
@@ -765,7 +778,7 @@
         "companion": [
           "Du Fu (杜甫)(poet)",
           "Gao Shi (高適)(poet)",
-          "Grand Master Gao Rugui ()(Daoist master)"
+          "Grand Master Gao Rugui (高如貴)(Daoist master)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
@@ -773,8 +786,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          112.308074,
-          34.655672
+          116.973760,
+          36.714910
         ]
       }
     },
@@ -787,9 +800,9 @@
         "year": 745,
         "book-page": 202,
         "companion": [
-          "Woman of Lu (third partner)",
-          "Pingyang (daughter)",
-          "Boqin (son)"
+          "Woman of Lu (鲁一妇女)(third partner)",
+          "Pingyang (平阳)(daughter)",
+          "Boqin (伯禽)(son)"
         ],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
@@ -821,8 +834,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          112.308074,
-          34.655672
+          116.744954,
+          35.553555
         ]
       }
     },
@@ -868,8 +881,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          118.71826171875,
-          32.10118973232094
+          118.783780,
+          32.057310
         ]
       }
     },
@@ -882,7 +895,7 @@
         "year": 750,
         "book-page": 221,
         "companion": [
-          "Miss Zong ()",
+          "Miss Zong (宗氏)",
           "Li Tengkong (李腾空)"
         ],
         "mapbox_bearing": 27,
@@ -918,11 +931,11 @@
       "type": "Feature",
       "properties": {
         "title": "Visiting Yuan Danqiu",
-        "historic-name": "Rock-Gate Mountain (石门山), Nanyang",
-        "modern-name": "Nanyang, Henan",
+        "historic-name": "Rock-Gate Mountain (石门山), Nanyang (南阳)",
+        "modern-name": "Nanyang (南阳市), Henan (河南省)",
         "year": 751,
         "book-page": 226,
-        "companion": "Yuan Danqiu ()",
+        "companion": ["Yuan Danqiu (元丹丘)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45
       },
@@ -944,11 +957,10 @@
         "book-page": 231,
         "companion": [
           "He Chang Hao (何昌浩)",
-          "Cui Du ()"
+          "Cui Du"
         ],
         "mapbox_bearing": 27,
-        "mapbox_pitch": 45,
-        "mapbox_zoom": ""
+        "mapbox_pitch": 45
       },
       "geometry": {
         "type": "Point",
@@ -966,21 +978,39 @@
         "modern-name": "Xuancheng (宣城市), Anhui Province (安徽省)",
         "year": 752,
         "book-page": 238,
-        "companion": "Li Zhao ()(cousin)",
+        "companion": ["Li Zhao (cousin)","Li Hua (李云)(uncle)"],
         "mapbox_bearing": 27,
         "mapbox_pitch": 45,
-        "poem-notable-zh-cn": 1,
-        "poem-notable-title-zh-cn": 1,
+        "poem-notable-zh-cn": ["弃我去者","昨日之日不可留",
+          "乱我心者","今日之日多烦忧",
+          "长风万里送秋雁","对此可以酣高楼",
+          "蓬莱文章建安骨","中间小谢又清发",
+          "俱怀逸兴壮思飞","欲上青天览明月",
+          "抽刀断水水更流","举杯消愁愁更愁",
+          "人生在世不称意","明朝散发弄扁舟"
+        ],
+        "poem-notable-title-zh-cn": "宣州谢朓楼饯别校书叔云",
         "poem-trans-hajin-en": [
-          "Yesterday, having left me, couldn't be pressed to stay."
+          "Yesterday, having left me, couldn't be pressed to stay.",
+          "Today, still disturbing me, makes me more upset.",
+          "The long wind is sending the autumn geese far away",
+          "And viewing them from this high tower, we should drink more.",
+          "Your essays are fresh and strong like those of the Han dynasty",
+          "While my poetry resembles Xie Tiao's in vigor and beauty.",
+          "We both have lofty spirit, thinking of soaring",
+          "To the sky to grab hold of the clear moon.",
+          "I draw my sword to cut water, which won't stop flowing,",
+          "And I raise my cup to douse my sorrow, which grows stronger.",
+          "Ah, life is such a sad thing that tomorrow",
+          "I will undo my hair and sail away in a little boat."
         ],
         "poem-trans-title-hajin-en": "Song for Accompanying Uncle Hua on Xie Tiao's Tower"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          118.751220703125,
-          30.935212690426727
+          118.751414,
+          30.946088
         ]
       }
     },
@@ -988,20 +1018,143 @@
       "type": "Feature",
       "properties": {
         "title": "Fleeing the An Lushan Rebellion",
-        "historic-name": "Mount Lu, Jiujiang",
-        "modern-name": "Mount Lu, Jiujiang",
+        "historic-name": "Mount Lu (庐山), Jiujiang (九江)",
+        "modern-name": "Mount Lu (庐山), Jiujiang (九江市), Jiangxi Province (江西省)",
         "year": 755,
         "book-page": 261,
-        "companion": ["Miss Zong (wife)"],
+        "companion": ["Miss Zong (宗氏)(wife)"],
         "mapbox_bearing": 27,
-        "mapbox_pitch": 45,
-        "mapbox_zoom": ""
+        "mapbox_pitch": 45
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           115.828168,
           29.589104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Captured and imprisoned as part of Prince Yong's rebel forces",
+        "historic-name": "Jiujiang (九江)",
+        "modern-name": "Jiujiang (九江市), Jiangxi Province (江西省)",
+        "year": 757,
+        "book-page": 265,
+        "companion": ["Wei Zichun ()", "Song Ruosi ()", "Miss Zong (宗氏)(wife)"],
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.963393,
+          29.705862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Banished to the southwest by the Emperor",
+        "historic-name": "Fengjie (奉节), Sichuan (四川)",
+        "modern-name": "Fengjie County (奉节县), Chongqing Municipality (重庆市)",
+        "year": 758,
+        "book-page": 272,
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45,
+        "poem-notable-zh-cn": ["朝辞白帝彩云间","千里江陵一日还","两岸猿声啼不住","轻舟已过万重山"
+        ],
+        "poem-notable-title-zh-cn": "早发白帝城",
+        "poem-trans-hajin-en": [
+          "In the morning I leave Baidi Town hidden in colored clouds,",
+          "Sailing three hundred miles back to Jaingling in a single day.",
+          "Before the gibbons on both shores can stop screaming,",
+          "My light boat has passed ten thousand hills."
+        ],
+        "poem-trans-title-hajin-en": "Leaving Baidi Town in the Morning"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.411825,
+          31.032095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Becoming Critically Ill and Bequething his works to Li Yangbing",
+        "historic-name": "Dangtu (当涂县)",
+        "modern-name": "Dangtu (当涂县), Anhui Province (安徽省)",
+        "year": 760,
+        "book-page": 282,
+        "companion": ["Li Yangbing (李阳冰)(uncle, magistrate)", 
+          "Boqin (伯禽)(son)"],
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.497972,
+          31.571213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Recovering and Revisiting Xuan Town",
+        "historic-name": "Xuan Town (宣城)",
+        "modern-name": "Xuancheng (宣城市), Anhui Province (安徽省)",
+        "year": 762,
+        "book-page": 284,
+        "companion": ["Ji Guangchen (季廣琛)"],
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.751414,
+          30.946088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Death",
+        "historic-name": "Dangtu (当涂县)",
+        "modern-name": "Dangtu (当涂县), Anhui Province (安徽省)",
+        "year": 762,
+        "book-page": 284,
+        "mapbox_bearing": 27,
+        "mapbox_pitch": 45,
+        "companion": ["Boqin (伯禽)(son)"],
+        "poem-notable-zh-cn": ["大鹏飞兮振八裔","中天摧兮力不济",
+          "馀风激兮万世","游扶桑兮挂石袂",
+          "后人得之传此","仲尼亡兮谁为出涕?"
+        ],
+        "poem-notable-title-zh-cn": "临终歌",
+        "poem-trans-hajin-en": [
+          "The great roc has been soaring all over the sky,",
+          "But it breaks a wing mid-flight",
+          "Its spirit will inspire a thousand generations,",
+          "Though the divine tree in heaven catches its left wings.",
+          "People in the future will spread this story,",
+          "Yet all saints are dead—who will shed tears for me?"
+        ],
+        "poem-trans-title-hajin-en": "The Final Song"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.497972,
+          31.571213
         ]
       }
     }
