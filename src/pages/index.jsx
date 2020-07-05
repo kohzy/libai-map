@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import * as turf from '@turf/turf'
 
 import Layout from 'components/Layout'
-import { Box, Flex } from 'components/Grid'
+import { Flex } from 'components/Grid'
 import Drawer from 'components/Drawer'
-import ControlBar from 'components/ControlBar'
+import DrawerControlBar from 'components/DrawerControlBar'
 import Map2 from 'components/Map2'
 
-import styled from 'style'
+import styled from 'styled-components'
 
 import { siteMetadata } from '../../gatsby-config'
 import GeoJSONData from 'data/libai-stop.json'
@@ -122,7 +122,7 @@ const IndexPage = () => {
           subheader={siteMetadata.subheader}
           activeLocation={sources.libaistops.data.features[focus]}
         >
-          <ControlBar 
+          <DrawerControlBar 
             backStartFunc={() => {
               setFocus(0)
             }}

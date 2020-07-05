@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { Box } from '@rebass/grid'
-import styled from 'style'
+import styled from 'styled-components'
 
 const Container = styled(Box)`
   max-width: ${props => props.maxWidth};

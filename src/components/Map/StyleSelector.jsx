@@ -3,7 +3,8 @@ import { render } from 'react-dom'
 import PropTypes from 'prop-types'
 import { fromJS } from 'immutable'
 
-import styled, { css, themeGet } from 'style'
+import styled, { css } from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const Wrapper = styled.div`
   /* cursor: pointer;

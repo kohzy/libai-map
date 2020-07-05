@@ -5,7 +5,7 @@ import Map from 'components/Map'
 import Sidebar from 'components/Sidebar'
 import { Box, Flex } from 'components/Grid'
 
-import styled from 'style'
+import styled from 'styled-components'
 
 // this wrapper needs to be 100% to force map and sidebar to fill the full space
 const Wrapper = styled(Flex)`

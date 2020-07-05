@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import { Text } from 'rebass'
 
 import { Box, Flex } from 'components/Grid'
-import styled, { themeGet } from 'style'
-import { siteMetadata } from '../../../gatsby-config'
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const Wrapper = styled(Flex).attrs({
   alignItems: 'center',
@@ -28,7 +28,7 @@ const Title = styled(Text).attrs({
   }
 `
 
-const Header = ({ siteTitle,siteSubheader }) => (
+const DrawerTitleBlock = ({ siteTitle,siteSubheader }) => (
   <Wrapper as="header">
     <Title>
       <Box p="1rem">{siteTitle}</Box>
@@ -38,14 +38,14 @@ const Header = ({ siteTitle,siteSubheader }) => (
 )
 
 
-Header.propTypes = {
+DrawerTitleBlock.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   siteSubheader: PropTypes.string.isRequired,
 }
 
-Header.defaultProps = {
+DrawerTitleBlock.defaultProps = {
   siteTitle: "Default Title",
   siteSubheader: "Default Subheader"
 }
 
-export default Header
+export default DrawerTitleBlock

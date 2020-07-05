@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { Text } from 'rebass'
 import { Box, Flex } from 'components/Grid'
-import styled, { themeGet } from 'style'
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
-const Wrapper = styled(Box).attrs({
-})`
+const Wrapper = styled(Box)`
   padding: 2rem 2rem 1rem 2rem;
   flex: 0 0 auto;
 `

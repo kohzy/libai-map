@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 import SEO from 'components/SEO'
 import { Flex } from 'components/Grid'
-import styled, { ThemeProvider, theme } from 'style'
+import styled, { ThemeProvider } from 'styled-components'
+import theme from 'style/theme'
+
 import { isUnsupported } from 'util/dom'
 import UnsupportedBrowser from './UnsupportedBrowser'
 

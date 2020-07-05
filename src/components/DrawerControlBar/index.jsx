@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 
 import { Box, Flex } from 'components/Grid'
 import { Text } from 'rebass'
-import styled, { themeGet } from 'style'
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
-const Wrapper = styled(Flex).attrs({
-  })`
+const Wrapper = styled(Flex)`
     padding: 0rem 2rem;
     flex: 0 0 auto;
   `
 
-const ControlBar = ({ backStartFunc, prevFunc, nextFunc }) => (
+const DrawerControlBar = ({ backStartFunc, prevFunc, nextFunc }) => (
     <Wrapper>
         <Box width={[1/2]}>
             <button 
@@ -30,9 +30,9 @@ const ControlBar = ({ backStartFunc, prevFunc, nextFunc }) => (
     </Wrapper>
 )
 
-ControlBar.propTypes = {
+DrawerControlBar.propTypes = {
     backStartFunc: PropTypes.func,
     prevFunc: PropTypes.func,
     nextFun: PropTypes.func,
 }
-export default ControlBar
+export default DrawerControlBar

@@ -1,7 +1,7 @@
 import Typography from 'typography'
 import typeographyTheme from 'typography-theme-noriega'
 
-import { theme } from 'style'
+import theme from 'style/theme'
 
 typeographyTheme.overrideThemeStyles = () => ({
   html: {

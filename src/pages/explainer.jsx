@@ -4,7 +4,8 @@ import Layout from 'components/Layout'
 import { Container } from 'components/Grid'
 import { Link } from 'components/Link'
 import Map from 'components/Map'
-import styled from 'style'
+
+import styled from 'styled-components'
 
 const Section = styled.section`
   h3 {

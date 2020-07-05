@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Text } from 'rebass'
 import DrawerTextChunk from './index.jsx'
-import styled, { themeGet } from 'style'
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const PoemTitle = styled(Text).attrs({
     as: 'p',

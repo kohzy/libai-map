@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-import styled from 'style'
+import styled from 'styled-components'
 import { hasWindow } from 'util/dom'
 import { getCenterAndZoom } from './util'
 import StyleSelector from './StyleSelector'

@@ -1,81 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Flex } from 'components/Grid'
-import { Text } from 'rebass'
+import { Flex } from 'components/Grid'
 
 import Sidebar from 'components/Sidebar'
-import Header from './Header.jsx'
-import PageLocationBlock from 'components/PageLocationBlock'
-import DrawerTextChunk from 'components/DrawerTextChunk'
-import DrawerTitleChunk from 'components/DrawerTextChunk/DrawerTitleChunk'
-import DrawerPoemCNChunk from 'components/DrawerTextChunk/DrawerPoemCNChunk'
-import DrawerPoemENChunk from 'components/DrawerTextChunk/DrawerPoemENChunk'
+import DrawerHeader from 'components/DrawerHeader'
+import DrawerBody from 'components/DrawerBody'
 
-import styled, { themeGet } from 'style'
-import styles from "./drawer.module.css"
+import styled from 'styled-components'
 
-const Wrapper = styled(Flex).attrs({
-})`
-  margin: 0 1rem 1rem 1rem;
+const Wrapper = styled(Flex)`
+  background-color: #050D52;
+  color: white
 `
 
 const Drawer = ({ children,activeLocation,title,subheader }) => (
-  <Sidebar allowScroll={true}>
-    <Header siteTitle={title} siteSubheader={subheader} />
-    <PageLocationBlock
-      page= {activeLocation.properties["book-page"]}
-    />
-    <Box>
-      {children}
-    </Box>
-    <DrawerTitleChunk 
-      header={activeLocation.properties.year}
-      body={activeLocation.properties.title}
-    />
-    <Box>
-      <img src={activeLocation.properties.thumbnail} />
-    </Box>
-    <Wrapper>
-      <DrawerTextChunk
-        header="Historic Name of Location"
-        body={activeLocation.properties["historic-name"]} 
-      />
-      <DrawerTextChunk
-        header="Present Name of Location"
-        body={activeLocation.properties["modern-name"]} 
-      />
-    </Wrapper>
-    
-    {
-      activeLocation.properties["poem-notable-zh-cn"] ? (<Wrapper>
-        <Box width={1/2}>
-        <DrawerPoemCNChunk
-          header="Notable Poem"
-          body={activeLocation.properties["poem-notable-zh-cn"]}
-          poemTitle={activeLocation.properties["poem-notable-title-zh-cn"]} 
-        />
-      </Box>
-      <Box width={1/2}>
-        <DrawerPoemENChunk
-          header="Translated"
-          body={activeLocation.properties["poem-trans-hajin-en"]}
-          poemTitle={activeLocation.properties["poem-trans-title-hajin-en"]}
-        />
-    </Box>
-    </Wrapper>) 
-    : null
-    }
-    
-    <Wrapper>
-      <Box width={1/2}>
-        <DrawerTextChunk
-          header="Companion(s)"
-          body={activeLocation.properties.companion} 
-        />
-      </Box>
-    </Wrapper>
-  </Sidebar>
+  <Wrapper>
+    <Sidebar>
+      <DrawerHeader 
+        siteTitle={title} 
+        siteSubheader={subheader}
+        activeLocation={activeLocation}
+      >
+        {children}
+      </DrawerHeader>
+      <DrawerBody
+        activeLocation={activeLocation}
+      /> 
+    </Sidebar>
+  </Wrapper>
 )
 
 Drawer.propTypes = {
@@ -86,7 +39,7 @@ Drawer.propTypes = {
 }
 
 Drawer.defaultProps = {
-  children: "this is placeholder text",
+  children: "this is where the control bar should be",
   activeLocation: {
     properties: {
       title: "Default title",

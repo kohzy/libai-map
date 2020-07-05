@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 import { Text } from 'rebass'
 import { Flex, Column } from 'components/Grid'
-import styled, { themeGet } from 'style'
+
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const Title = styled(Text).attrs({
     as: 'p',

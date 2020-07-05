@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Box, Flex } from 'components/Grid'
 import { Text } from 'rebass'
-import styled, { themeGet } from 'style'
+import styled from 'styled-components'
+import { themeGet } from 'styled-system'
 
 const Wrapper = styled(Flex).attrs({
     alignItems: 'center',
@@ -23,7 +24,7 @@ const PageIndicator = styled(Text).attrs({
     border-left: 2px solid ${themeGet('colors.primary.700')};
   `
 
-const PageLocationBlock = ({ page }) => (
+const DrawerPageLocationBlock = ({ page }) => (
     <Wrapper>
         <Flex>
             <Box>
@@ -33,7 +34,7 @@ const PageLocationBlock = ({ page }) => (
     </Wrapper>
 )
 
-PageLocationBlock.propTypes = {
+DrawerPageLocationBlock.propTypes = {
     page: PropTypes.string.isRequired,
 }
-export default PageLocationBlock
+export default DrawerPageLocationBlock
