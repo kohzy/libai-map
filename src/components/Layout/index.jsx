@@ -9,7 +9,7 @@ import theme from 'style/theme'
 import { isUnsupported } from 'util/dom'
 import UnsupportedBrowser from './UnsupportedBrowser'
 
-const Wrapper = styled(Flex).attrs({ flexDirection: 'column' })`
+const Wrapper = styled(Flex)`
   height: 100%;
 `
 
@@ -23,7 +23,9 @@ const Layout = ({ children, title }) => {
       {isUnsupported ? (
         <UnsupportedBrowser />
       ) : (
-        <Wrapper>
+        <Wrapper
+          flexDirection={'column'}
+        >
           <SEO title={title} />
           <Content>{children}</Content>
         </Wrapper>

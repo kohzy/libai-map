@@ -12,7 +12,8 @@ const Wrapper = styled(Flex).attrs({
   })`
     flex: 0 0 auto;
     border-top: 10px solid ${themeGet('colors.primary.700')};
-  `
+    background-color: ${p => p.theme.colors.navy['900']};
+    `
 
 const PageIndicator = styled(Text).attrs({
   })`

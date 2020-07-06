@@ -2,13 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Flex } from 'components/Grid'
-import { Text } from 'rebass'
 import styled from 'styled-components'
-import { themeGet } from 'styled-system'
 
 const Wrapper = styled(Flex)`
     padding: 0rem 2rem;
-    flex: 0 0 auto;
+    background-color: ${p => p.theme.colors.navy['900']};
   `
 
 const DrawerControlBar = ({ backStartFunc, prevFunc, nextFunc }) => (

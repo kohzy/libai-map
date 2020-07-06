@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Flex } from 'components/Grid'
+import { Box, Flex, Columns } from 'components/Grid'
 
 import DrawerTextChunk from 'components/DrawerTextChunk'
 import DrawerTitleChunk from 'components/DrawerTextChunk/DrawerTitleChunk'
@@ -11,58 +11,67 @@ import DrawerPoemENChunk from 'components/DrawerTextChunk/DrawerPoemENChunk'
 import styled from 'styled-components'
 
 const Wrapper = styled(Flex)`
-  margin: 0 1rem 1rem 1rem;
+  background-color: ${p => p.theme.colors.navy['800']};
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
 `
 
 const DrawerBody = ({ activeLocation }) => (
-    <div>
-    <DrawerTitleChunk 
-      header={activeLocation.properties.year}
-      body={activeLocation.properties.title}
-    />
-    <Box>
-      <img src={activeLocation.properties.thumbnail} />
-    </Box>
-    <Wrapper>
-      <DrawerTextChunk
-        header="Historic Name of Location"
-        body={activeLocation.properties["historic-name"]} 
+  <Wrapper
+    flexDirection={'column'}
+    flex={'0 0 auto'}
+  >
+    <Columns>
+      <DrawerTitleChunk 
+        header={activeLocation.properties.year}
+        body={activeLocation.properties.title}
       />
-      <DrawerTextChunk
-        header="Present Name of Location"
-        body={activeLocation.properties["modern-name"]} 
-      />
-    </Wrapper>
-    
+    </Columns>
+    <Columns>
+      <Box>
+        <img src={activeLocation.properties.thumbnail} />
+      </Box>
+    </Columns>
+    <Columns>
+        <DrawerTextChunk
+          header="Historic Name of Location"
+          body={activeLocation.properties["historic-name"]} 
+        />
+        <DrawerTextChunk
+          header="Present Name of Location"
+          body={activeLocation.properties["modern-name"]} 
+        />
+    </Columns>
     {
-      activeLocation.properties["poem-notable-zh-cn"] ? (<Wrapper>
-        <Box width={1/2}>
+      activeLocation.properties["poem-notable-zh-cn"] ? (
+      <Columns>
         <DrawerPoemCNChunk
           header="Notable Poem"
           body={activeLocation.properties["poem-notable-zh-cn"]}
           poemTitle={activeLocation.properties["poem-notable-title-zh-cn"]} 
         />
-      </Box>
-      <Box width={1/2}>
         <DrawerPoemENChunk
           header="Translated"
           body={activeLocation.properties["poem-trans-hajin-en"]}
           poemTitle={activeLocation.properties["poem-trans-title-hajin-en"]}
         />
-    </Box>
-    </Wrapper>) 
+      </Columns>
+    ) 
     : null
     }
-    
-    <Wrapper>
-      <Box width={1/2}>
+    {
+      activeLocation.properties["companion"] ? (
+        <Columns>
         <DrawerTextChunk
           header="Companion(s)"
           body={activeLocation.properties.companion} 
         />
-      </Box>
-    </Wrapper>
-    </div>
+      </Columns>
+    ) 
+    : null
+    }
+  </Wrapper>
 )
 
 DrawerBody.propTypes = {

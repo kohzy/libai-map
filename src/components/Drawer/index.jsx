@@ -1,22 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Flex } from 'components/Grid'
+import { Flex, Box } from 'components/Grid'
 
-import Sidebar from 'components/Sidebar'
 import DrawerHeader from 'components/DrawerHeader'
 import DrawerBody from 'components/DrawerBody'
 
 import styled from 'styled-components'
 
-const Wrapper = styled(Flex)`
-  background-color: #050D52;
-  color: white
-`
+const Wrapper = styled(Box)`
+  color: ${p => p.theme.colors.white};
+  box-shadow: 2px 1px 5px 5px ${p => p.theme.colors.navy.shadow};
+  z-index: 1;
+  height: 100%;
+  `
 
 const Drawer = ({ children,activeLocation,title,subheader }) => (
-  <Wrapper>
-    <Sidebar>
+  <Wrapper
+    width= {['100%', '350px', '450px']}
+    flex= {'0 0 auto'}
+    as='drawer'
+  >
       <DrawerHeader 
         siteTitle={title} 
         siteSubheader={subheader}
@@ -27,7 +31,6 @@ const Drawer = ({ children,activeLocation,title,subheader }) => (
       <DrawerBody
         activeLocation={activeLocation}
       /> 
-    </Sidebar>
   </Wrapper>
 )
 

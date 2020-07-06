@@ -37,9 +37,6 @@ const ExplainerPage = () => (
         <h3>Full page examples:</h3>
         <ul>
           <li>
-            <Link to="/map">Map with Sidebar</Link>
-          </li>
-          <li>
             <Link to="/">Full Screen Map</Link>
           </li>
         </ul>

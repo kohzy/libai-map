@@ -12,9 +12,8 @@ const Wrapper = styled(Flex).attrs({
   justifyContent: 'space-between',
 })`
   padding: 0.75rem 0.5rem;
-  flex: 0 0 auto;
-  border-bottom: 1px solid ${themeGet('colors.grey.900')};
-`
+  background-color: ${p => p.theme.colors.navy['900']};
+  `
 
 const Title = styled(Text).attrs({
   as: 'h4',

@@ -6,8 +6,6 @@ export const Columns = props => (
     flexWrap={['wrap', 'nowrap']}
     justifyContent="space-between"
     {...props}
-    mx="-1rem"
-    width="calc(100% + 2rem)" // expand to fill the space, accounting for the negative margins
   />
 )
 

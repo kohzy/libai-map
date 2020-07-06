@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Text } from 'rebass'
-import { Flex, Column } from 'components/Grid'
+import { Column } from 'components/Grid'
 
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'

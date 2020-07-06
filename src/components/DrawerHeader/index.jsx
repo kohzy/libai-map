@@ -2,17 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Flex } from 'components/Grid'
+import styled from 'styled-components'
+
 import DrawerTitleBlock from './DrawerTitleBlock.jsx'
 import DrawerPageLocationBlock from './DrawerPageLocationBlock.jsx'
 
+const Wrapper = styled(Flex)`
+  background-color: ${p => p.theme.colors.navy['900']};
+`
+
 const DrawerHeader = ({ children, siteTitle, siteSubheader, activeLocation }) => (
-  <Flex as="drawer-header">
+  <Wrapper as="drawer-header">
     <DrawerTitleBlock siteTitle={siteTitle} siteSubheader={siteSubheader} />
     <DrawerPageLocationBlock
       page= {activeLocation.properties["book-page"]}
     />
     {children}
-  </Flex>
+  </Wrapper>
 )
 
 DrawerHeader.propTypes = {

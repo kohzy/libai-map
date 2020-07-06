@@ -8,7 +8,6 @@ import { themeGet } from 'styled-system'
 
 const Wrapper = styled(Box)`
   padding: 2rem 2rem 1rem 2rem;
-  flex: 0 0 auto;
 `
 
 const Date = styled(Text).attrs({
