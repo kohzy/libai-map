@@ -7,9 +7,7 @@ import { Column } from 'components/Grid'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 
-const Title = styled(Text).attrs({
-    as: 'p',
-  })`    
+const Title = styled(Text)`    
     text-transform: uppercase;
     font-size: 0.65rem;
     font-weight: 800;
@@ -19,17 +17,13 @@ const Title = styled(Text).attrs({
     color: ${themeGet('colors.primary.600')};
   `
 
-const DrawerText = styled(Text).attrs({
-    as: 'p',
-  })`
+const DrawerText = styled(Text)`
     flex-grow: 1;
     line-height: 1.2;
     margin-bottom: 0.5rem;
 `
 
-const PoemENText = styled(Text).attrs({
-  as: 'p',
-})`
+const PoemENText = styled(Text)`
   font-style: italic;
   flex-grow: 1;
   line-height: 1.2;
@@ -39,8 +33,8 @@ const PoemENText = styled(Text).attrs({
 const DrawerTextChunk = ({ header, body }) => (
     <Column>
         <Title>{header}</Title>
-        {body instanceof Array ? body.map(t => 
-        <PoemENText>{t}</PoemENText>) : 
+        {body instanceof Array ? body.map((t, i) => 
+        <PoemENText key={i}>{t}</PoemENText>) : 
         <DrawerText>{body}</DrawerText> }        
     </Column>
 )

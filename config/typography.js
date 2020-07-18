@@ -5,7 +5,7 @@ import theme from 'style/theme'
 
 typeographyTheme.overrideThemeStyles = () => ({
   html: {
-    //   overflowY: 'scroll',
+    // overflowY: 'scroll',
     height: '100%',
   },
   body: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Flex } from 'components/Grid'
+import { Flex, Box } from 'components/Grid'
 import styled from 'styled-components'
 
 import DrawerTitleBlock from './DrawerTitleBlock.jsx'
@@ -12,7 +12,8 @@ const Wrapper = styled(Flex)`
 `
 
 const DrawerHeader = ({ children, siteTitle, siteSubheader, activeLocation }) => (
-  <Wrapper as="drawer-header">
+  <Wrapper as="drawer-header"
+  >
     <DrawerTitleBlock siteTitle={siteTitle} siteSubheader={siteSubheader} />
     <DrawerPageLocationBlock
       page= {activeLocation.properties["book-page"]}

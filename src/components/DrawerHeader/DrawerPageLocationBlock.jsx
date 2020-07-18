@@ -36,6 +36,6 @@ const DrawerPageLocationBlock = ({ page }) => (
 )
 
 DrawerPageLocationBlock.propTypes = {
-    page: PropTypes.string.isRequired,
+    page: PropTypes.number.isRequired,
 }
 export default DrawerPageLocationBlock

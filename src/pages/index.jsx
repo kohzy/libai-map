@@ -14,7 +14,7 @@ import GeoJSONData from 'data/libai-stop.json'
 
 // this wrapper needs to be 100% to force map and sidebar to fill the full space
 const Wrapper = styled(Flex)`
-  height: 100%;
+  height: 100vh;
 `
 
 const sources = {

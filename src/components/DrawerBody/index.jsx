@@ -12,16 +12,24 @@ import styled from 'styled-components'
 
 const Wrapper = styled(Flex)`
   background-color: ${p => p.theme.colors.navy['800']};
-  overflow-x: auto;
-  overflow-y: hidden;
+  height: ${({ height }) => height};
+  overflow: -moz-scrollbars-none; /* Mozilla based browsers */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    width: 0;   /* Safari and Chrome */
+  }
+`
+const InnerWrapper = styled(Flex)`
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 100%;
 `
 
-const DrawerBody = ({ activeLocation }) => (
-  <Wrapper
-    flexDirection={'column'}
-    flex={'0 0 auto'}
-  >
+const DrawerBody = ({ activeLocation, height }) => (
+  <Wrapper height={height}>
+    <InnerWrapper
+    flexDirection={'column'}>
     <Columns>
       <DrawerTitleChunk 
         header={activeLocation.properties.year}
@@ -71,11 +79,13 @@ const DrawerBody = ({ activeLocation }) => (
     ) 
     : null
     }
+    </InnerWrapper>
   </Wrapper>
 )
 
 DrawerBody.propTypes = {
   activeLocation: PropTypes.object,
+  height: PropTypes.string,
 }
 
 DrawerBody.defaultProps = {
@@ -87,6 +97,7 @@ DrawerBody.defaultProps = {
       year: 2020,
       "book-page": 999,    }
   },
+  height: "100%",
 }
 
 export default DrawerBody

@@ -10,9 +10,7 @@ const Wrapper = styled(Box)`
   padding: 2rem 2rem 1rem 2rem;
 `
 
-const Date = styled(Text).attrs({
-    as: 'p',
-  })`    
+const Date = styled(Text).attrs()`    
     text-transform: uppercase;
     flex-grow: 1;
     line-height: 1;
@@ -21,9 +19,7 @@ const Date = styled(Text).attrs({
     color: ${themeGet('colors.primary.600')};
   `
 
-const AdDate = styled(Text).attrs({
-  as: 'p',
-})`    
+const AdDate = styled(Text).attrs()`    
   text-transform: uppercase;
   font-weight: 800;
   font-size: 0.75rem;
@@ -49,12 +45,12 @@ const DrawerTitleChunk = ({ header, body }) => (
 )
 
 DrawerTitleChunk.propTypes = {
-  header: PropTypes.string.isRequired,
+  header: PropTypes.number.isRequired,
   body: PropTypes.string.isRequired,
 }
 
 DrawerTitleChunk.defaultProps = {
-  header: "Default Header",
+  header: 99999,
   body: "Lorem Ipsum"
 }
 

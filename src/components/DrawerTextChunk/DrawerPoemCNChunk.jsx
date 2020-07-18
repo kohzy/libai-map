@@ -6,9 +6,7 @@ import DrawerTextChunk from './index.jsx'
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 
-const Title = styled(Text).attrs({
-    as: 'p',
-  })`    
+const Title = styled(Text)`    
     text-transform: uppercase;
     flex-grow: 1;
     line-height: 1;
