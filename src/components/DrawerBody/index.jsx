@@ -28,7 +28,7 @@ const InnerWrapper = styled(Flex)`
 
 const ChunkWrapper = styled(Box).attrs({
   width: [1, 1/2, 1/2],
-  mx: '1rem'
+  mx: '0.5rem'
 })``
 
 const DrawerBody = ({ activeLocation, height }) => (
@@ -37,7 +37,7 @@ const DrawerBody = ({ activeLocation, height }) => (
     flexDirection={'column'}>
       <Columns mx='1rem' mt='2rem'>
         <Box
-          mx='1rem'
+          mx='1.5rem'
         >
           <DrawerTitleChunk 
             header={activeLocation.properties.year}
@@ -50,7 +50,7 @@ const DrawerBody = ({ activeLocation, height }) => (
           <img src={activeLocation.properties.thumbnail} />
         </Box>
       </Columns>
-      <Columns mx='1rem'>
+      <Columns mx='1.5rem'>
         <ChunkWrapper>
           <DrawerTextChunk
             header="Historic Location Name"
@@ -89,7 +89,7 @@ const DrawerBody = ({ activeLocation, height }) => (
         }
         {
           activeLocation.properties["companion"] ? (
-          <Columns mx='1rem'>
+          <Columns mx='1.5rem'>
             <ChunkWrapper>
               <DrawerTextChunk
                 header="Companion(s)"
