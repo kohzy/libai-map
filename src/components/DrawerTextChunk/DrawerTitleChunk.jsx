@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 
 const Wrapper = styled(Box)`
-  padding: 2rem 2rem 1rem 2rem;
+  margin-bottom: 2rem
 `
 
 const Date = styled(Text).attrs()`    

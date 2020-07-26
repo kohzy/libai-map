@@ -1,21 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Text } from 'rebass'
+import { Text, Box } from 'rebass'
 import { Column } from 'components/Grid'
+import DrawerChunkHeader from './DrawerChunkHeader.jsx'
 
 import styled from 'styled-components'
 import { themeGet } from 'styled-system'
 
-const Title = styled(Text)`    
-    text-transform: uppercase;
-    font-size: 0.65rem;
-    font-weight: 800;
-    flex-grow: 1;
-    line-height: 1.3;
-    margin-bottom: 0.65rem;
-    color: ${themeGet('colors.primary.600')};
-  `
+const Wrapper = styled(Box)`
+  margin-bottom: 2rem;
+`
 
 const DrawerText = styled(Text)`
     flex-grow: 1;
@@ -23,24 +18,23 @@ const DrawerText = styled(Text)`
     margin-bottom: 0.5rem;
 `
 
-const PoemENText = styled(Text)`
-  font-style: italic;
+const ArrayText = styled(Text)`
   flex-grow: 1;
   line-height: 1.2;
   margin-bottom: 0.5rem;
 `
 
 const DrawerTextChunk = ({ header, body }) => (
-    <Column>
-        <Title>{header}</Title>
-        {body instanceof Array ? body.map((t, i) => 
-        <PoemENText key={i}>{t}</PoemENText>) : 
-        <DrawerText>{body}</DrawerText> }        
-    </Column>
+  <Wrapper>
+    <DrawerChunkHeader>{header}</DrawerChunkHeader>
+    {body instanceof Array ? body.map((t, i) => 
+    <ArrayText key={i}>{t}</ArrayText>) : 
+    <DrawerText>{body}</DrawerText> }
+  </Wrapper>        
 )
 
 DrawerTextChunk.propTypes = {
-  header: PropTypes.string.isRequired,
+  header: PropTypes.string,
   body: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
@@ -48,7 +42,6 @@ DrawerTextChunk.propTypes = {
 }
 
 DrawerTextChunk.defaultProps = {
-  header: "Default Header",
   body: "Lorem Ipsum"
 }
 
