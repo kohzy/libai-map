@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
+import MapErrorBoundary from '@/components/MapView/MapErrorBoundary'
 import SidePanel from '@/components/SidePanel/SidePanel'
 import { activeSegment, step, stops } from '@/itinerary'
 import type { StepAction } from '@/itinerary'
@@ -13,9 +14,11 @@ function App() {
   return (
     <div className={styles.layout}>
       <SidePanel stop={stops[index]} onStep={onStep} />
-      <Suspense fallback={null}>
-        <MapView stop={stops[index]} segment={activeSegment(index)} />
-      </Suspense>
+      <MapErrorBoundary>
+        <Suspense fallback={null}>
+          <MapView stop={stops[index]} segment={activeSegment(index)} />
+        </Suspense>
+      </MapErrorBoundary>
     </div>
   )
 }

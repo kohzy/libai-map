@@ -10,7 +10,7 @@
   inset: 0;
 }
 
-.missingToken {
+.message {
   margin: 2rem;
   max-width: 32rem;
   line-height: 1.5;

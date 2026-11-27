@@ -11,8 +11,8 @@ type StopDetailsProps = {
 }
 
 function Lines({ lines, className }: { lines: string[]; className: string }) {
-  return lines.map((line, index) => (
-    <p key={`${index}:${line}`} className={className}>
+  return lines.map((line) => (
+    <p key={line} className={className}>
       {line}
     </p>
   ))

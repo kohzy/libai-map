@@ -107,7 +107,7 @@ function MapView({ stop, segment }: MapViewProps) {
   if (!MAPBOX_TOKEN) {
     return (
       <div className={styles.wrapper}>
-        <p className={styles.missingToken}>
+        <p className={styles.message}>
           The map needs a Mapbox token. Set <code>VITE_MAPBOX_API_TOKEN</code> in{' '}
           <code>.env.local</code> and restart the dev server.
         </p>
