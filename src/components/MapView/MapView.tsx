@@ -65,7 +65,6 @@ function MapView({ stop, segment }: MapViewProps) {
   const mapRef = useRef<mapboxgl.Map | null>(null)
   const loadedRef = useRef(false)
   const latestRef = useRef({ stop, segment })
-  latestRef.current = { stop, segment }
 
   useEffect(() => {
     if (!MAPBOX_TOKEN || !containerRef.current) return
@@ -102,6 +101,7 @@ function MapView({ stop, segment }: MapViewProps) {
   }, [])
 
   useEffect(() => {
+    latestRef.current = { stop, segment }
     const map = mapRef.current
     if (!map || !loadedRef.current) return
     showStop(map, stop, segment)
