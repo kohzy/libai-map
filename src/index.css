@@ -1,3 +1,6 @@
+/* Declare ui-sdk's cascade layer first so this file's unlayered styles win over it. */
+@layer ui-sdk;
+
 html,
 body,
 #root {
