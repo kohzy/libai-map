@@ -4,7 +4,7 @@ import { length } from '@turf/length'
 import data from '@/data/libai-stop.json'
 import type { Route, Segment, StepAction, Stop, StopCollection } from './types'
 
-export type { Route, Segment, StepAction, Stop, StopProperties } from './types'
+export type { Route, Segment, StepAction, Stop } from './types'
 
 const ARC_STEPS = 500
 
@@ -14,8 +14,9 @@ export const stops = stopCollection.features
 function buildArc(origin: number[], destination: number[]): Segment {
   const straight = lineString([origin, destination])
   const distance = length(straight, { units: 'miles' })
+  const stepMiles = distance / ARC_STEPS
   const coordinates: number[][] = []
-  for (let i = 0; i < distance; i += distance / ARC_STEPS) {
+  for (let i = 0; i < distance; i += stepMiles) {
     coordinates.push(along(straight, i, { units: 'miles' }).geometry.coordinates)
   }
   return lineString(coordinates)

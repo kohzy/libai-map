@@ -63,7 +63,6 @@ function showStop(map: mapboxgl.Map, stop: Stop, segment: Segment) {
 function MapView({ stop, segment }: MapViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
-  const loadedRef = useRef(false)
   const latestRef = useRef({ stop, segment })
 
   useEffect(() => {
@@ -74,10 +73,9 @@ function MapView({ stop, segment }: MapViewProps) {
     const map = new mapboxgl.Map({
       container: containerRef.current,
       style: MAP_STYLE,
-      center: initial.geometry.coordinates as [number, number],
+      center: cameraFor(initial).center,
       zoom: cameraFor(initial).zoom,
     })
-    mapRef.current = map
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
@@ -85,7 +83,7 @@ function MapView({ stop, segment }: MapViewProps) {
       map.addSource('route', { type: 'geojson', data: route })
       map.addSource('activeRoute', { type: 'geojson', data: latestRef.current.segment })
       layers.forEach((layer) => map.addLayer(layer))
-      loadedRef.current = true
+      mapRef.current = map
 
       // A step taken while the style was loading has to be applied now.
       if (latestRef.current.stop !== initial) {
@@ -94,7 +92,6 @@ function MapView({ stop, segment }: MapViewProps) {
     })
 
     return () => {
-      loadedRef.current = false
       mapRef.current = null
       map.remove()
     }
@@ -103,7 +100,7 @@ function MapView({ stop, segment }: MapViewProps) {
   useEffect(() => {
     latestRef.current = { stop, segment }
     const map = mapRef.current
-    if (!map || !loadedRef.current) return
+    if (!map) return
     showStop(map, stop, segment)
   }, [stop, segment])
 
