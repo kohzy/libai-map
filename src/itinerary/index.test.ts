@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { activeSegment, route, step, stops } from './index'
+import { activeSegment, cameraFor, route, step, stops } from './index'
 
 const last = stops.length - 1
 
@@ -47,6 +47,29 @@ describe('route', () => {
       const end = coords[coords.length - 1]
       expect(end[0]).toBeCloseTo(destination[0], 0)
       expect(end[1]).toBeCloseTo(destination[1], 0)
+    })
+  })
+})
+
+describe('cameraFor', () => {
+  it("uses the stop's own camera values when present", () => {
+    expect(cameraFor(stops[0])).toEqual({
+      center: stops[0].geometry.coordinates,
+      zoom: 5,
+      bearing: 27,
+      pitch: 20,
+    })
+  })
+
+  it('falls back to zoom 10, bearing 30 and pitch 0 like the original map', () => {
+    const stop = { ...stops[1], properties: { ...stops[1].properties } }
+    delete stop.properties.mapbox_bearing
+    delete stop.properties.mapbox_pitch
+    expect(cameraFor(stop)).toEqual({
+      center: stop.geometry.coordinates,
+      zoom: 10,
+      bearing: 30,
+      pitch: 0,
     })
   })
 })

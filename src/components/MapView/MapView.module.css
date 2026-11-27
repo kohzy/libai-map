@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+.missingToken {
+  margin: 2rem;
+  max-width: 32rem;
+  line-height: 1.5;
+}

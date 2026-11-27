@@ -2,7 +2,7 @@ import { along } from '@turf/along'
 import { lineString } from '@turf/helpers'
 import { length } from '@turf/length'
 import data from '@/data/libai-stop.json'
-import type { Route, Segment, StepAction, StopCollection } from './types'
+import type { Route, Segment, StepAction, Stop, StopCollection } from './types'
 
 export type { Route, Segment, StepAction, Stop, StopProperties } from './types'
 
@@ -30,6 +30,26 @@ export const route: Route = {
 
 export function activeSegment(index: number): Segment {
   return route.features[Math.max(0, index - 1)]
+}
+
+export type Camera = {
+  center: [number, number]
+  zoom: number
+  bearing: number
+  pitch: number
+}
+
+// Stops without their own camera values have always used these.
+const DEFAULT_CAMERA = { zoom: 10, bearing: 30, pitch: 0 }
+
+export function cameraFor(stop: Stop): Camera {
+  const { mapbox_zoom, mapbox_bearing, mapbox_pitch } = stop.properties
+  return {
+    center: stop.geometry.coordinates as [number, number],
+    zoom: mapbox_zoom ?? DEFAULT_CAMERA.zoom,
+    bearing: mapbox_bearing ?? DEFAULT_CAMERA.bearing,
+    pitch: mapbox_pitch ?? DEFAULT_CAMERA.pitch,
+  }
 }
 
 export function step(index: number, action: StepAction): number {
