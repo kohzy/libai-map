@@ -1,7 +1,8 @@
 import { Toolbar, ToolbarButton } from '@ui-sdk/react/toolbar'
 import type { Dispatch } from 'react'
+import ChevronIcon from '@/components/Icon/ChevronIcon'
 import PanelScroll from '@/components/PanelScroll/PanelScroll'
-import { stops } from '@/itinerary'
+import { step, stops } from '@/itinerary'
 import { age, hasPoem } from '@/itinerary/poems'
 import type { JourneyAction } from '@/journey/useJourney'
 import styles from './JourneyTab.module.css'
@@ -12,28 +13,11 @@ type StopViewProps = {
   dispatch: Dispatch<JourneyAction>
 }
 
-function ChevronIcon({ direction }: { direction: 'left' | 'right' }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <path d={direction === 'left' ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'} />
-    </svg>
-  )
-}
-
 function StopView({ index, dispatch }: StopViewProps) {
   const stop = stops[index]
   const p = stop.properties
   const last = index >= stops.length - 1
-  const next = stops[last ? 0 : index + 1]
+  const next = stops[step(index, 'next')]
 
   return (
     <>
@@ -79,10 +63,6 @@ function StopView({ index, dispatch }: StopViewProps) {
             </p>
             <h2 className={styles.stopTitle}>{p.title}</h2>
           </header>
-
-          {p.thumbnail && (
-            <img className={styles.thumbnail} src={p.thumbnail} alt={p.title} />
-          )}
 
           <dl className={styles.facts}>
             <dt>Then</dt>

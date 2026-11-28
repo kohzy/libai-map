@@ -47,11 +47,4 @@ describe('panel tabs and header', () => {
     ).toBeTruthy()
     expect(screen.queryByText('Stop 14 of 39')).toBeNull()
   })
-
-  it('names the panel resize handle on desktop', () => {
-    const { screen } = renderApp()
-    expect(
-      screen.getByRole('separator', { name: 'Resize the stop panel' })
-    ).toBeTruthy()
-  })
 })

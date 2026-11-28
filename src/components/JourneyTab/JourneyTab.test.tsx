@@ -34,7 +34,7 @@ describe('stop view', () => {
     expect(screen.getByRole('button', { name: /Read the poem/ })).toBeTruthy()
   })
 
-  it('leaves out a missing companion row and a missing photo', async () => {
+  it('leaves out a missing companion row and never shows a photo', async () => {
     const { user, screen } = renderApp()
     await openStop(user, 'Seeking Civil Service in the Capital')
     expect(screen.queryByText('With')).toBeNull()

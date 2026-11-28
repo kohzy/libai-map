@@ -61,9 +61,7 @@ type MapViewProps = {
   started: boolean
 }
 
-type View = MapViewProps
-
-function showView(map: mapboxgl.Map, view: View) {
+function showView(map: mapboxgl.Map, view: MapViewProps) {
   const source = map.getSource('activeRoute') as GeoJSONSource
   if (view.started) {
     source.setData(view.segment)
@@ -83,7 +81,7 @@ function MapView({ stop, segment, started }: MapViewProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<mapboxgl.Map | null>(null)
-  const latestRef = useRef<View>({ stop, segment, started })
+  const latestRef = useRef<MapViewProps>({ stop, segment, started })
 
   useEffect(() => {
     if (!MAPBOX_TOKEN || !containerRef.current || !wrapperRef.current) return

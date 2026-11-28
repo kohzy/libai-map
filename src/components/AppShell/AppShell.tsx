@@ -51,7 +51,7 @@ function DesktopShell({ state, dispatch }: AppShellProps) {
 }
 
 function PhoneShell({ state, dispatch }: AppShellProps) {
-  const [snapPoint, setSnapPoint] = useState(0.65)
+  const [snapPoint, setSnapPoint] = useState(SNAP_POINTS[1])
   return (
     <div className={styles.phone}>
       <MainArea state={state} dispatch={dispatch} />

@@ -11,7 +11,6 @@ type SpineProps = {
 
 const LAST = stops.length - 1
 
-// One tab stop for all 39 ticks: arrow keys, Home and End move and open, like a toolbar.
 function Spine({ index, onSelect }: SpineProps) {
   const groupRef = useRef<HTMLDivElement>(null)
   const movedByKey = useRef(false)

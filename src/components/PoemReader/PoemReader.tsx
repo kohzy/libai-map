@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, PointerEvent } from 'react'
+import ChevronIcon from '@/components/Icon/ChevronIcon'
+import { matchesQuery } from '@/hooks/useMediaQuery'
 import type { Stop } from '@/itinerary'
 import { groupOf } from '@/itinerary/poems'
 import type { PoemLanguage } from '@/itinerary/poems'
@@ -15,10 +17,7 @@ type PoemReaderProps = {
 const VISIBLE_ZH_LINES = 4
 
 function prefersReducedMotion() {
-  return (
-    typeof window.matchMedia === 'function' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  )
+  return matchesQuery('(prefers-reduced-motion: reduce)')
 }
 
 function PoemReader({ stop, onPrev, onNext, onClose }: PoemReaderProps) {
@@ -59,18 +58,7 @@ function PoemReader({ stop, onPrev, onNext, onClose }: PoemReaderProps) {
           className={styles.iconButton}
           onClick={onPrev}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            <path d="M15 6l-6 6 6 6" />
-          </svg>
+          <ChevronIcon direction="left" />
         </button>
         <button
           type="button"
@@ -78,18 +66,7 @@ function PoemReader({ stop, onPrev, onNext, onClose }: PoemReaderProps) {
           className={styles.iconButton}
           onClick={onNext}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            <path d="M9 6l6 6-6 6" />
-          </svg>
+          <ChevronIcon direction="right" />
         </button>
         <span className={styles.spacer} />
         <button type="button" className={styles.closeButton} onClick={onClose}>
@@ -201,18 +178,7 @@ function PoemBody({ stop }: { stop: Stop }) {
             </div>
             {moreLines > 0 && (
               <p className={styles.hint}>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <path d="M15 6l-6 6 6 6" />
-                </svg>
+                <ChevronIcon direction="left" size={14} />
                 Scroll left for {moreLines} more lines
               </p>
             )}

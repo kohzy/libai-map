@@ -217,12 +217,6 @@
   letter-spacing: -0.01em;
 }
 
-.thumbnail {
-  display: block;
-  max-width: 100%;
-  border-radius: 6px;
-}
-
 .facts {
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
