@@ -32,12 +32,15 @@ export function useNarration(stop: Stop) {
   const active = useRef<NarrationRun | null>(null)
   const audio = useRef<HTMLAudioElement | null>(null)
 
+  // Closing the reader or changing poem unmounts this, which stops narration.
   useEffect(() => {
     preloadVoices()
+    const runs = run
+    const current = active
     return () => {
-      run.current++
-      active.current?.stop()
-      active.current = null
+      runs.current++
+      current.current?.stop()
+      current.current = null
     }
   }, [])
 

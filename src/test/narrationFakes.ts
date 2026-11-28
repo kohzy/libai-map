@@ -39,7 +39,10 @@ export class FakeUtterance {
   onstart: (() => void) | null = null
   onend: (() => void) | null = null
   onerror: ((event: { error: string }) => void) | null = null
-  constructor(public text: string) {}
+  text: string
+  constructor(text: string) {
+    this.text = text
+  }
 }
 
 export class FakeSpeech extends EventTarget {

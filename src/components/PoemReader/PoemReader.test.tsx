@@ -1,6 +1,33 @@
-import { fireEvent, waitFor, within } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { act, fireEvent, waitFor, within } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import type { NarrationCallbacks } from '@/narration/engines'
 import { openStop, renderApp } from '@/test/renderApp'
+
+// jsdom cannot play audio, so the tests drive narration line by line.
+const engine = vi.hoisted(() => ({
+  callbacks: null as NarrationCallbacks | null,
+  stop: vi.fn(),
+}))
+vi.mock('@/narration/engines', () => ({
+  playClips: (
+    _audio: unknown,
+    _urls: unknown,
+    callbacks: NarrationCallbacks
+  ) => {
+    engine.callbacks = callbacks
+    return { stop: engine.stop }
+  },
+  speakLines: vi.fn(),
+  findChineseVoice: vi.fn(async () => null),
+  preloadVoices: vi.fn(),
+  unlockSpeech: vi.fn(),
+}))
+
+afterEach(() => {
+  engine.callbacks = null
+  engine.stop.mockClear()
+  vi.restoreAllMocks()
+})
 
 async function openPoemAt(title: string) {
   const app = renderApp()
@@ -26,7 +53,7 @@ const hover = (el: HTMLElement) =>
   fireEvent.pointerEnter(el, { pointerType: 'mouse' })
 
 describe('poem reader', () => {
-  it('shows the poem in both languages with only previous, next and Close', async () => {
+  it('shows the poem in both languages with only previous, next, Close and narration', async () => {
     const { screen, reader } = await openPoemAt(
       'Sick and Destitute in Yangzhou'
     )
@@ -41,7 +68,7 @@ describe('poem reader', () => {
       within(reader)
         .getAllByRole('button')
         .map((b) => b.getAttribute('aria-label') ?? b.textContent?.trim())
-    ).toEqual(['Previous poem', 'Next poem', 'Close'])
+    ).toEqual(['Previous poem', 'Next poem', 'Close', 'Play narration'])
     expect(within(reader).queryByText(/From stop/)).toBeNull()
     expect(within(reader).queryByText(/Poem \d+ of/)).toBeNull()
     expect(screen.getByTestId('map').closest('[data-hidden]')).toBeTruthy()
@@ -146,5 +173,134 @@ describe('poem reader', () => {
     expect(app.screen.getByTestId('map')).toBe(map)
     expect(map.closest('[data-hidden]')).toBeNull()
     await waitFor(() => expect(document.activeElement).toBe(card))
+  })
+})
+
+const paired = (els: HTMLElement[]) =>
+  els.map((l) => l.hasAttribute('data-paired'))
+
+async function startNarration(title: string) {
+  const app = await openPoemAt(title)
+  const button = within(app.reader).getByRole('button', {
+    name: 'Play narration',
+  })
+  await app.user.click(button)
+  const narrate = (line: number) => act(() => engine.callbacks?.onLine(line))
+  return { ...app, button, narrate }
+}
+
+describe('poem narration', () => {
+  it('swaps the audio button for a stop button and keeps focus on it', async () => {
+    const { button } = await startNarration('Sick and Destitute in Yangzhou')
+    expect(button.getAttribute('aria-label')).toBe('Stop narration')
+    expect(button.textContent).toContain('Stop')
+    expect(document.activeElement).toBe(button)
+  })
+
+  it('gives the narrated line the hover highlight in both languages', async () => {
+    const { reader, narrate } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    narrate(1)
+    expect(paired(lines(reader, 'zh'))).toEqual([false, true, false, false])
+    expect(paired(lines(reader, 'en'))).toEqual([false, true, false, false])
+    expect(lines(reader, 'zh')[0].hasAttribute('data-dimmed')).toBe(true)
+  })
+
+  it('highlights by the hand-paired groups on stop 33', async () => {
+    const { reader, narrate } = await startNarration(
+      'Withdrawing from Politics'
+    )
+    narrate(1)
+    expect(paired(lines(reader, 'zh')).slice(0, 3)).toEqual([true, true, false])
+    expect(paired(lines(reader, 'en')).slice(0, 2)).toEqual([true, false])
+  })
+
+  it('lets a hover take over and gives the highlight back when it leaves', async () => {
+    const { reader, narrate } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    narrate(1)
+    const en = lines(reader, 'en')
+    hover(en[3])
+    expect(paired(en)).toEqual([false, false, false, true])
+    fireEvent.pointerLeave(en[3], { pointerType: 'mouse' })
+    expect(paired(en)).toEqual([false, true, false, false])
+  })
+
+  it('does not let a mouse click pin the highlight during narration', async () => {
+    const { reader, narrate, user } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    narrate(1)
+    const en = lines(reader, 'en')
+    await user.click(en[3])
+    fireEvent.pointerLeave(en[3], { pointerType: 'mouse' })
+    expect(paired(en)).toEqual([false, true, false, false])
+  })
+
+  it('scrolls the Chinese column sideways to a later line without moving the page', async () => {
+    const { reader, narrate } = await startNarration(
+      'Withdrawing from Politics'
+    )
+    const column = within(reader).getByRole('region', { name: /lines$/ })
+    const rect = (left: number, right: number) =>
+      ({ left, right, top: 0, bottom: 0, width: right - left }) as DOMRect
+    vi.spyOn(column, 'getBoundingClientRect').mockReturnValue(rect(0, 260))
+    vi.spyOn(lines(reader, 'zh')[6], 'getBoundingClientRect').mockReturnValue(
+      rect(-200, -140)
+    )
+    const scrollTo = vi.fn()
+    column.scrollTo = scrollTo
+    const scrollIntoView = vi.spyOn(Element.prototype, 'scrollIntoView')
+    narrate(6)
+    expect(scrollTo).toHaveBeenCalledOnce()
+    expect(scrollTo.mock.calls[0][0].left).toBe(-400)
+    expect(scrollIntoView).not.toHaveBeenCalled()
+  })
+
+  it('clears the highlight and returns to the audio button on stop', async () => {
+    const { reader, button, narrate, user } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    narrate(2)
+    await user.click(button)
+    expect(engine.stop).toHaveBeenCalled()
+    expect(button.getAttribute('aria-label')).toBe('Play narration')
+    expect(
+      reader.querySelectorAll('[data-paired], [data-dimmed]')
+    ).toHaveLength(0)
+  })
+
+  it('returns to the audio button and announces the end when the poem finishes', async () => {
+    const { reader, button, narrate } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    narrate(3)
+    act(() => engine.callbacks?.onEnd())
+    expect(button.getAttribute('aria-label')).toBe('Play narration')
+    expect(within(reader).getByRole('status').textContent).toBe(
+      'Narration finished'
+    )
+    expect(reader.querySelectorAll('[data-paired]')).toHaveLength(0)
+  })
+
+  it('stops narrating when the reader moves to the next poem', async () => {
+    const { reader, user } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    await user.click(within(reader).getByRole('button', { name: 'Next poem' }))
+    expect(engine.stop).toHaveBeenCalled()
+  })
+
+  it('says narration is unavailable when no voice can read the poem', async () => {
+    const { reader, button } = await startNarration(
+      'Sick and Destitute in Yangzhou'
+    )
+    await act(async () => engine.callbacks?.onError(0))
+    expect(button.getAttribute('aria-label')).toBe('Play narration')
+    expect(within(reader).getByRole('status').textContent).toBe(
+      'Narration isn’t available in this browser'
+    )
   })
 })

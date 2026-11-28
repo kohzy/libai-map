@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, PointerEvent } from 'react'
 import ChevronIcon from '@/components/Icon/ChevronIcon'
+import SpeakerIcon from '@/components/Icon/SpeakerIcon'
+import StopIcon from '@/components/Icon/StopIcon'
 import { matchesQuery } from '@/hooks/useMediaQuery'
 import type { Stop } from '@/itinerary'
 import { groupOf } from '@/itinerary/poems'
 import type { PoemLanguage } from '@/itinerary/poems'
+import { useNarration } from '@/narration/useNarration'
+import type { NarrationNotice } from '@/narration/useNarration'
 import styles from './PoemReader.module.css'
 
 type PoemReaderProps = {
@@ -15,6 +19,13 @@ type PoemReaderProps = {
 }
 
 const VISIBLE_ZH_LINES = 4
+
+const NOTICES: Record<NarrationNotice, string> = {
+  started: 'Narration started',
+  stopped: 'Narration stopped',
+  finished: 'Narration finished',
+  unavailable: 'Narration isn’t available in this browser',
+}
 
 function prefersReducedMotion() {
   return matchesQuery('(prefers-reduced-motion: reduce)')
@@ -103,9 +114,35 @@ function PoemBody({ stop }: { stop: Stop }) {
   const [hoverGroup, setHoverGroup] = useState<number | null>(null)
   const [focusGroup, setFocusGroup] = useState<number | null>(null)
   const [tapGroup, setTapGroup] = useState<number | null>(null)
-  const shown = hoverGroup ?? focusGroup ?? tapGroup
+  const narration = useNarration(stop)
+  const narrating =
+    narration.status === 'loading' || narration.status === 'playing'
+  const narrationGroup =
+    narration.line === null ? null : groupOf(stop, 'zh', narration.line)
+  // A hover or keyboard focus overrides narration while it lasts; a tapped pairing does not.
+  const shown = hoverGroup ?? focusGroup ?? narrationGroup ?? tapGroup
 
+  const zhColumn = useRef<HTMLDivElement>(null)
   const zhLines = useRef<(HTMLParagraphElement | null)[]>([])
+  // Lines are focusable, so a mouse click also focuses one.
+  const pointerFocus = useRef(false)
+
+  // Follow narration by scrolling only the Chinese column sideways. scrollIntoView
+  // would also scroll the reader, pulling phones back up on every line.
+  useEffect(() => {
+    const column = zhColumn.current
+    const line =
+      narration.line === null ? null : zhLines.current[narration.line]
+    if (!column || !line) return
+    const view = column.getBoundingClientRect()
+    const box = line.getBoundingClientRect()
+    if (box.left >= view.left && box.right <= view.right) return
+    // Later lines sit further left, so bring the spoken line to the right edge.
+    column.scrollTo({
+      left: column.scrollLeft + box.right - view.right,
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+    })
+  }, [narration.line])
 
   const revealZh = (group: number) => {
     const line = zh.findIndex((_, i) => groupOf(stop, 'zh', i) === group)
@@ -130,11 +167,19 @@ function PoemBody({ stop }: { stop: Stop }) {
       onPointerLeave: (event: PointerEvent) => {
         if (event.pointerType !== 'touch') setHoverGroup(null)
       },
+      onPointerDown: () => {
+        pointerFocus.current = true
+      },
       onPointerUp: (event: PointerEvent) => {
+        pointerFocus.current = false
         if (event.pointerType === 'touch')
           setTapGroup((current) => (current === group ? null : group))
       },
       onFocus: () => {
+        const fromPointer = pointerFocus.current
+        pointerFocus.current = false
+        // During narration a click must not pin the highlight after the pointer leaves.
+        if (fromPointer && narrating) return
         setFocusGroup(group)
         if (lang === 'en') revealZh(group)
       },
@@ -152,12 +197,18 @@ function PoemBody({ stop }: { stop: Stop }) {
 
   const moreLines = zh.length - VISIBLE_ZH_LINES
 
+  const toggleNarration = () => {
+    setTapGroup(null)
+    narration.toggle()
+  }
+
   return (
     <div className={styles.scroll} onPointerDown={clearTapOutsideLines}>
       <div className={styles.body}>
         <div className={styles.columns}>
           <div className={styles.zhColumn}>
             <div
+              ref={zhColumn}
               lang="zh-Hans"
               className={styles.zh}
               tabIndex={0}
@@ -187,6 +238,28 @@ function PoemBody({ stop }: { stop: Stop }) {
                 Scroll left for {moreLines} more lines
               </p>
             )}
+            <div className={styles.narration}>
+              <button
+                type="button"
+                className={styles.narrateButton}
+                aria-label={narrating ? 'Stop narration' : 'Play narration'}
+                aria-busy={narration.status === 'loading' || undefined}
+                onClick={toggleNarration}
+              >
+                {narrating ? <StopIcon /> : <SpeakerIcon />}
+                {narrating ? 'Stop' : 'Listen'}
+              </button>
+              <p
+                role="status"
+                className={
+                  narration.notice === 'unavailable'
+                    ? styles.hint
+                    : styles.visuallyHidden
+                }
+              >
+                {narration.notice && NOTICES[narration.notice]}
+              </p>
+            </div>
           </div>
 
           <div className={styles.enColumn}>
