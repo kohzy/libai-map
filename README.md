@@ -30,6 +30,17 @@ The site builds through Vercel with each commit. The project settings need:
 
 - Framework preset: **Vite**. The build command is `npm run build` and the output directory is `dist`.
 - Environment variable `VITE_MAPBOX_API_TOKEN` holding the Mapbox token. It replaces the old `GATSBY_MAPBOX_API_TOKEN`.
+- Environment variables `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` for poem narration (see below). They have no `VITE_` prefix, so they stay on the server.
+
+## Poem narration
+
+The poem reader's Listen button reads the Chinese poem aloud, line by line. Each line comes from `/api/narrate` (`api/narrate.ts`), a Vercel function that asks [Azure AI Speech](https://learn.microsoft.com/azure/ai-services/speech-service/) to read it in the `poetry-reading` style.
+
+1. Create an Azure AI Speech resource and copy one of its keys and its region (for example `eastasia`).
+2. Set `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` in the Vercel project, and in `.env.local` for `npm run dev`, which serves the same function.
+3. The voice, style, pace and pause live in `src/narration/voice.ts`. Responses are cached at the CDN for a year, so bump `VOICE_VERSION` there whenever you change the voice.
+
+The function only speaks lines from `src/data/libai-stop.json` and rejects any other URL. Without the Azure variables it answers 503, and the reader falls back to a Chinese voice built into the browser, or says narration is unavailable when the browser has none.
 
 ## Credits
 
