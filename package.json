@@ -1,6 +1,9 @@
 {
   "name": "libai-map",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "description": "An interactive map tracking Li Bai's travel throughout China, an accompaniment to Ha Jin's book The Banished Immortal",
   "version": "0.2.0",
   "type": "module",
