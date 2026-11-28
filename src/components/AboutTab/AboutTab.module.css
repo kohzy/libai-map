@@ -1,0 +1,90 @@
+.about {
+  padding: 16px 24px 32px;
+}
+
+.accordion {
+  max-width: none;
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+  border-radius: 0;
+  background: none;
+}
+
+.item {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.header {
+  margin: 0;
+}
+
+.trigger {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.chevron {
+  flex: 0 0 auto;
+  color: var(--secondary);
+  transition: rotate 0.2s;
+}
+
+.trigger[data-open] .chevron {
+  rotate: 180deg;
+}
+
+.panel {
+  overflow: hidden;
+  padding: 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+
+  & p {
+    max-width: 60ch;
+    margin: 0 0 12px;
+  }
+
+  & > :last-child {
+    margin-bottom: 20px;
+  }
+}
+
+.colophon {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 10px;
+  margin: 0;
+
+  & dt {
+    color: var(--secondary);
+    font-size: 14px;
+  }
+
+  & dd {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

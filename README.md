@@ -1,24 +1,36 @@
 # Map Accompaniment to The Banished Immortal by Ha Jin
 
-This is a project to create an interactive accompaniment to the book *The Banished Immortal: A Life of Li Bai*, by Ha Jin. The book details the life story of the eight-century Tang Dynasty Poet Li Bai, widely recognized as one of the greatest if not the greatest Chinese poet in history.
+This is a project to create an interactive accompaniment to the book *The Banished Immortal: A Life of Li Bai*, by Ha Jin. The book details the life story of the eighth-century Tang Dynasty poet Li Bai, widely recognized as one of the greatest if not the greatest Chinese poet in history.
 
 Li Bai led a nomadic life, moving frequently throughout China as he sought to advance his career. While the book tells a compelling story, some may find it difficult to track the movement of the protagonist without a map. This project aims to create an accompanying tracker to add to the experience of reading the book.
 
-## Hosted site
-This repo automatically builds through Vercel to https://learn-gatsby-mapbox.now.sh/ with each new commit
-
 ## The Data
-The source data of the itinerary to be traced in this interactive map is saved in `src/data/libai-stop.geojson`
 
-## Notes from the Gatsby-Mapbox starter
-This site is based off of the [Gatsby-Mapbox starter made by brendan-ward](https://github.com/brendan-ward/gatsby-starter-mapbox).
+The itinerary traced in the map is saved in `src/data/libai-stop.json`, a GeoJSON file. `src/data/README.md` describes each field.
 
-This starter gets you going quickly with Mapbox GL in Gatsby.
+## Development
 
-It uses React hooks to wrap the Mapbox GL JS object.
+The site is a Vite + React 19 + TypeScript single-page app. The map uses mapbox-gl 1.x, and the controls are built with [ui-sdk](https://ui-sdk.dev).
 
-Because Mapbox GL is provided as a native JS object within `components/Map/index.jsx`, instead of a React Component, you need to coordinate application state directly with the map object.
+1. Use the current Node LTS and run `npm install`.
+2. Copy `.env.example` to `.env.local` and set `VITE_MAPBOX_API_TOKEN` to a Mapbox public access token.
+3. Run `npm run dev`.
 
-Map configuration is stored in `config/map.js`. You need to provide basic map configuration such as initial `zoom` level, and you can provide optional `sources` and `layers` according to the Mapbox GL style specification.
+| Script            | What it does                                   |
+| ----------------- | ---------------------------------------------- |
+| `npm run dev`     | Start the dev server                           |
+| `npm run build`   | Type check and build static files into `dist/` |
+| `npm run preview` | Serve the production build locally             |
+| `npm test`        | Run the Vitest suite                           |
+| `npm run lint`    | Lint with oxlint                               |
 
-You must set the environment variable `GATSBY_MAPBOX_API_TOKEN` to your Mapbox API token.
+## Deploying on Vercel
+
+The site builds through Vercel with each commit. The project settings need:
+
+- Framework preset: **Vite**. The build command is `npm run build` and the output directory is `dist`.
+- Environment variable `VITE_MAPBOX_API_TOKEN` holding the Mapbox token. It replaces the old `GATSBY_MAPBOX_API_TOKEN`.
+
+## Credits
+
+The first version of this site was based on the [Gatsby-Mapbox starter by brendan-ward](https://github.com/brendan-ward/gatsby-starter-mapbox).
