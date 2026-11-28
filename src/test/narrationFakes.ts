@@ -1,7 +1,5 @@
 import { vi } from 'vitest'
 
-// Stand-ins for the media and speech APIs jsdom lacks, driven by the tests.
-
 export class FakeAudio extends EventTarget {
   static instances: FakeAudio[] = []
   src = ''

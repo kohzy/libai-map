@@ -1,4 +1,3 @@
-// The Azure voice that narrates the poems. Retune these after listening in Speech Studio.
 export const VOICE = {
   name: 'zh-CN-XiaoxiaoNeural',
   style: 'poetry-reading',

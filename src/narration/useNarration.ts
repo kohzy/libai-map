@@ -32,7 +32,6 @@ export function useNarration(stop: Stop) {
   const active = useRef<NarrationRun | null>(null)
   const audio = useRef<HTMLAudioElement | null>(null)
 
-  // Closing the reader or changing poem unmounts this, which stops narration.
   useEffect(() => {
     preloadVoices()
     const runs = run
@@ -45,6 +44,7 @@ export function useNarration(stop: Stop) {
   }, [])
 
   const end = (status: NarrationStatus, notice: NarrationNotice) => {
+    run.current++
     active.current?.stop()
     active.current = null
     setState({ status, line: null, notice })
@@ -52,11 +52,8 @@ export function useNarration(stop: Stop) {
 
   // Must run inside the press itself: iOS allows audio and speech only from a tap.
   const toggle = () => {
-    if (state.status === 'loading' || state.status === 'playing') {
-      run.current++
-      end('idle', 'stopped')
-      return
-    }
+    if (state.status === 'loading' || state.status === 'playing')
+      return end('idle', 'stopped')
 
     const token = ++run.current
     const live = () => token === run.current

@@ -130,7 +130,6 @@ export function findChineseVoice(
   })
 }
 
-// Starts the voice list loading early.
 export function preloadVoices() {
   speech()?.getVoices()
 }

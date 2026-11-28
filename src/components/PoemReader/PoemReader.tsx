@@ -178,7 +178,6 @@ function PoemBody({ stop }: { stop: Stop }) {
       onFocus: () => {
         const fromPointer = pointerFocus.current
         pointerFocus.current = false
-        // During narration a click must not pin the highlight after the pointer leaves.
         if (fromPointer && narrating) return
         setFocusGroup(group)
         if (lang === 'en') revealZh(group)
