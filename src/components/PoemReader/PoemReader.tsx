@@ -22,16 +22,21 @@ function prefersReducedMotion() {
 
 function PoemReader({ stop, onPrev, onNext, onClose }: PoemReaderProps) {
   const firstButton = useRef<HTMLButtonElement>(null)
+  const openerRef = useRef<HTMLElement | null>(null)
+  const restoreFrame = useRef(0)
 
   useEffect(() => {
-    const opener =
+    // A StrictMode re-run must not restore focus early or record the reader as the opener.
+    cancelAnimationFrame(restoreFrame.current)
+    openerRef.current ??=
       document.activeElement instanceof HTMLElement
         ? document.activeElement
         : null
     firstButton.current?.focus()
     return () => {
       // The opener can be inside a sheet that is still reopening, so wait a frame.
-      requestAnimationFrame(() => {
+      restoreFrame.current = requestAnimationFrame(() => {
+        const opener = openerRef.current
         if (opener?.isConnected) opener.focus()
       })
     }
