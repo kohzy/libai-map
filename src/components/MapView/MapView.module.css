@@ -1,13 +1,13 @@
 .wrapper {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
-  height: 100%;
-}
-
-.map {
   position: absolute;
   inset: 0;
+  background: var(--map);
+}
+
+/* mapbox-gl.css sets position: relative on this element, so size it explicitly. */
+.map {
+  width: 100%;
+  height: 100%;
 }
 
 .message {

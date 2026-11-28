@@ -1,0 +1,104 @@
+.desktop {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--map);
+}
+
+.panelPane {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.mainPane {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.handle {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 1px;
+  width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hairline);
+  transition: background 0.12s;
+
+  &[data-hovering],
+  &[data-dragging],
+  &:focus-visible {
+    background: var(--accent);
+  }
+}
+
+.knob {
+  position: absolute;
+  width: 4px;
+  height: 36px;
+  border-radius: 2px;
+  background: #5a5d62;
+  transition: background 0.12s;
+}
+
+.handle[data-hovering] .knob,
+.handle[data-dragging] .knob,
+.handle:focus-visible .knob {
+  background: var(--accent);
+}
+
+.main {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--map);
+}
+
+.mapLayer {
+  position: absolute;
+  inset: 0;
+
+  &[data-hidden] {
+    visibility: hidden;
+  }
+}
+
+.phone {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--map);
+}
+
+.sheet {
+  height: 92dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  border-radius: 16px 16px 0 0;
+  background: var(--panel);
+  box-shadow: 0 -1px 0 var(--hairline);
+}
+
+.sheetHandle {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 4px;
+  margin: 8px auto 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: var(--graphite);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .handle,
+  .knob {
+    transition: none;
+  }
+}

@@ -21,4 +21,32 @@ globalThis.ResizeObserver ??= class {
   disconnect() {}
 }
 
-afterEach(cleanup)
+// Tests run at desktop width unless they set `phoneViewport` before rendering.
+export const viewport = { phone: false }
+window.matchMedia = (query: string) =>
+  ({
+    matches: query.includes('max-width') ? viewport.phone : false,
+    media: query,
+    onchange: null,
+    addEventListener() {},
+    removeEventListener() {},
+    addListener() {},
+    removeListener() {},
+    dispatchEvent: () => false,
+  }) as unknown as MediaQueryList
+HTMLDialogElement.prototype.showModal ??= function (this: HTMLDialogElement) {
+  this.setAttribute('open', '')
+}
+HTMLDialogElement.prototype.show ??= function (this: HTMLDialogElement) {
+  this.setAttribute('open', '')
+}
+HTMLDialogElement.prototype.close ??= function (this: HTMLDialogElement) {
+  this.removeAttribute('open')
+}
+globalThis.requestAnimationFrame ??= (cb: FrameRequestCallback) =>
+  setTimeout(() => cb(performance.now()), 0) as unknown as number
+
+afterEach(() => {
+  cleanup()
+  viewport.phone = false
+})

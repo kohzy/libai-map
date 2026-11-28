@@ -17,7 +17,9 @@ function buildArc(origin: number[], destination: number[]): Segment {
   const stepMiles = distance / ARC_STEPS
   const coordinates: number[][] = []
   for (let i = 0; i < distance; i += stepMiles) {
-    coordinates.push(along(straight, i, { units: 'miles' }).geometry.coordinates)
+    coordinates.push(
+      along(straight, i, { units: 'miles' }).geometry.coordinates
+    )
   }
   return lineString(coordinates)
 }
@@ -26,7 +28,18 @@ export const route: Route = {
   type: 'FeatureCollection',
   features: stops
     .slice(0, -1)
-    .map((stop, n) => buildArc(stop.geometry.coordinates, stops[n + 1].geometry.coordinates)),
+    .map((stop, n) =>
+      buildArc(stop.geometry.coordinates, stops[n + 1].geometry.coordinates)
+    ),
+}
+
+export function routeBounds(): [[number, number], [number, number]] {
+  const lons = stops.map((stop) => stop.geometry.coordinates[0])
+  const lats = stops.map((stop) => stop.geometry.coordinates[1])
+  return [
+    [Math.min(...lons), Math.min(...lats)],
+    [Math.max(...lons), Math.max(...lats)],
+  ]
 }
 
 export function activeSegment(index: number): Segment {

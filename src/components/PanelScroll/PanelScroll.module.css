@@ -1,0 +1,24 @@
+.area {
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  background: transparent;
+}
+
+/* Without a ScrollAreaScrollbar part the native scrollbar stays, so hide it here. */
+.viewport {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+}
+
+.content {
+  padding: 0;
+}

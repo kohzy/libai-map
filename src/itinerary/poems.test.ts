@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { stops } from './index'
-import { age, decadeGroups, groupOf, linesOf, placeName, poemInfo, poemStops } from './poems'
+import {
+  age,
+  decadeGroups,
+  groupOf,
+  linesOf,
+  placeName,
+  poemInfo,
+  poemStops,
+} from './poems'
 
 describe('poemStops', () => {
   it('lists the 16 stops with a poem, in journey order', () => {
@@ -27,7 +35,15 @@ describe('placeName and poemInfo', () => {
 describe('decadeGroups', () => {
   it('groups all 39 stops by decade in order', () => {
     const groups = decadeGroups()
-    expect(groups.map((g) => g.label)).toEqual(['700s', '710s', '720s', '730s', '740s', '750s', '760s'])
+    expect(groups.map((g) => g.label)).toEqual([
+      '700s',
+      '710s',
+      '720s',
+      '730s',
+      '740s',
+      '750s',
+      '760s',
+    ])
     expect(groups.reduce((sum, g) => sum + g.indices.length, 0)).toBe(39)
     expect(groups[0].indices).toEqual([0, 1])
   })
@@ -70,6 +86,8 @@ describe('line pairing', () => {
   })
 
   it('maps stop 28’s second Chinese line to three English lines', () => {
-    expect(linesOf(stops[27], 'en', groupOf(stops[27], 'zh', 1))).toEqual([1, 2, 3])
+    expect(linesOf(stops[27], 'en', groupOf(stops[27], 'zh', 1))).toEqual([
+      1, 2, 3,
+    ])
   })
 })

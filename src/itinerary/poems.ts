@@ -10,7 +10,10 @@ const LINE_GROUPS: Record<number, Record<PoemLanguage, number[]>> = {
   4: { zh: [0, 1, 2, 3], en: [0, 0, 1, 1, 2, 2, 2, 3, 3, 3] },
   28: { zh: [0, 1, 2, 3, 4, 5, 6], en: [0, 1, 1, 1, 2, 2, 3, 4, 5, 5, 6] },
   29: { zh: [0, 1, 2, 3, 4, 5, 6, 7], en: [0, 1, 1, 2, 3, 3, 4, 5, 6, 7] },
-  33: { zh: [0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], en: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+  33: {
+    zh: [0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    en: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  },
 }
 
 export function stopNumber(stop: Stop): number {
@@ -55,7 +58,16 @@ export function groupOf(stop: Stop, lang: PoemLanguage, line: number): number {
   return groups ? groups[lang][line] : line
 }
 
-export function linesOf(stop: Stop, lang: PoemLanguage, group: number): number[] {
-  const lines = lang === 'zh' ? stop.properties['poem-notable-zh-cn'] : stop.properties['poem-trans-hajin-en']
-  return (lines ?? []).flatMap((_, line) => (groupOf(stop, lang, line) === group ? [line] : []))
+export function linesOf(
+  stop: Stop,
+  lang: PoemLanguage,
+  group: number
+): number[] {
+  const lines =
+    lang === 'zh'
+      ? stop.properties['poem-notable-zh-cn']
+      : stop.properties['poem-trans-hajin-en']
+  return (lines ?? []).flatMap((_, line) =>
+    groupOf(stop, lang, line) === group ? [line] : []
+  )
 }

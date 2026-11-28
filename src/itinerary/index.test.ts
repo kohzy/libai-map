@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { activeSegment, cameraFor, route, step, stops } from './index'
+import {
+  activeSegment,
+  cameraFor,
+  route,
+  routeBounds,
+  step,
+  stops,
+} from './index'
 
 const last = stops.length - 1
 
@@ -71,6 +78,21 @@ describe('cameraFor', () => {
       bearing: 30,
       pitch: 0,
     })
+  })
+})
+
+describe('routeBounds', () => {
+  it('spans from Suyab in the west to Hangzhou in the east', () => {
+    const [[west, south], [east, north]] = routeBounds()
+    expect(west).toBe(stops[0].geometry.coordinates[0])
+    expect(east).toBe(stops[20].geometry.coordinates[0])
+    for (const stop of stops) {
+      const [lon, lat] = stop.geometry.coordinates
+      expect(lon).toBeGreaterThanOrEqual(west)
+      expect(lon).toBeLessThanOrEqual(east)
+      expect(lat).toBeGreaterThanOrEqual(south)
+      expect(lat).toBeLessThanOrEqual(north)
+    }
   })
 })
 

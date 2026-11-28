@@ -1,0 +1,229 @@
+.reader {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  background: var(--map);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reader {
+    animation: reveal 0.22s ease-out;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 44px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.iconButton,
+.closeButton {
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--raised);
+  }
+}
+
+.iconButton {
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px 0 10px;
+  font-weight: 500;
+}
+
+.scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.body {
+  container: reader / inline-size;
+  padding: 56px 56px 64px;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 64px;
+  row-gap: 28px;
+}
+
+.zhColumn {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.zh {
+  writing-mode: vertical-rl;
+  width: 8.75em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+  font-family: var(--font-zh);
+  font-size: 30px;
+  line-height: 1.8;
+  letter-spacing: 0.16em;
+  scrollbar-width: thin;
+  scrollbar-color: var(--graphite) transparent;
+
+  &:focus-visible {
+    outline-offset: 6px;
+    border-radius: 4px;
+  }
+}
+
+.zhTitle {
+  margin: 0 0 0 0.6em;
+  color: var(--accent);
+  font-size: 0.62em;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+}
+
+.zhLine,
+.enLine {
+  margin: 0;
+  border-radius: 4px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+
+  &[data-paired] {
+    color: var(--accent);
+    background: var(--accent-tint);
+  }
+
+  &[data-dimmed] {
+    color: var(--muted);
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+}
+
+.zhLine {
+  padding: 8px 0;
+}
+
+.enLine {
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--secondary);
+  font-size: 13px;
+}
+
+.enColumn {
+  flex: 0 1 40ch;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.enTitle {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.enLines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.credit {
+  margin: 4px 0 0;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+/* Too narrow for the side-by-side layout: stack Chinese above English, as on phones. */
+@container reader (max-width: 760px) {
+  .columns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zh {
+    font-size: 26px;
+  }
+
+  .enColumn {
+    flex-basis: auto;
+    gap: 16px;
+  }
+
+  .enTitle {
+    font-size: 15px;
+  }
+
+  .enLines {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 39.99em) {
+  .body {
+    padding: 28px 24px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zhLine,
+  .enLine {
+    transition: none;
+  }
+}

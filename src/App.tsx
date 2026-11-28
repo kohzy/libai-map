@@ -1,26 +1,9 @@
-import { lazy, Suspense, useState } from 'react'
-import MapErrorBoundary from '@/components/MapView/MapErrorBoundary'
-import SidePanel from '@/components/SidePanel/SidePanel'
-import { activeSegment, step, stops } from '@/itinerary'
-import type { StepAction } from '@/itinerary'
-import styles from './App.module.css'
-
-const MapView = lazy(() => import('@/components/MapView/MapView'))
+import AppShell from '@/components/AppShell/AppShell'
+import { useJourney } from '@/journey/useJourney'
 
 function App() {
-  const [index, setIndex] = useState(0)
-  const onStep = (action: StepAction) => setIndex((current) => step(current, action))
-
-  return (
-    <div className={styles.layout}>
-      <SidePanel stop={stops[index]} onStep={onStep} />
-      <MapErrorBoundary>
-        <Suspense fallback={null}>
-          <MapView stop={stops[index]} segment={activeSegment(index)} />
-        </Suspense>
-      </MapErrorBoundary>
-    </div>
-  )
+  const [state, dispatch] = useJourney()
+  return <AppShell state={state} dispatch={dispatch} />
 }
 
 export default App

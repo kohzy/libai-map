@@ -32,14 +32,29 @@ export const initialState: JourneyState = {
 
 const POEM_STOPS = poemStops()
 
-export function journeyReducer(state: JourneyState, action: JourneyAction): JourneyState {
+export function journeyReducer(
+  state: JourneyState,
+  action: JourneyAction
+): JourneyState {
   switch (action.type) {
     case 'selectTab':
       return { ...state, tab: action.tab }
     case 'openStop':
-      return { ...state, view: 'stop', index: action.index, started: true, poemOpen: false }
+      return {
+        ...state,
+        view: 'stop',
+        index: action.index,
+        started: true,
+        poemOpen: false,
+      }
     case 'step':
-      return { ...state, view: 'stop', index: step(state.index, action.action), started: true, poemOpen: false }
+      return {
+        ...state,
+        view: 'stop',
+        index: step(state.index, action.action),
+        started: true,
+        poemOpen: false,
+      }
     case 'showIndex':
       return { ...state, view: 'index' }
     case 'openPoem':
@@ -47,7 +62,8 @@ export function journeyReducer(state: JourneyState, action: JourneyAction): Jour
     case 'stepPoem': {
       const pos = POEM_STOPS.indexOf(state.index)
       const delta = action.action === 'next' ? 1 : -1
-      const next = POEM_STOPS[(pos + delta + POEM_STOPS.length) % POEM_STOPS.length]
+      const next =
+        POEM_STOPS[(pos + delta + POEM_STOPS.length) % POEM_STOPS.length]
       return { ...state, index: next, poemOpen: true }
     }
     case 'closePoem':
