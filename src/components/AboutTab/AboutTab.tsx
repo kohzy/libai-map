@@ -50,31 +50,26 @@ function AboutTab() {
         <Accordion defaultValue={['book']} className={styles.accordion}>
           <Section value="book" title="The book">
             <p>
-              <em>The Banished Immortal: A Life of Li Bai</em> is Ha Jin's
-              biography of the Tang poet, published by Pantheon in 2019.
+              <em><a href="https://www.penguinrandomhouse.com/books/566084/the-banished-immortal-by-ha-jin/" target="_blank" rel="noopener noreferrer">The Banished Immortal: A Life of Li Bai</a></em> is Ha Jin's
+              biography of the legendary Tang poet, published by Pantheon in 2019.
             </p>
             <p>
-              It follows Li Bai from his birth in Suyab, in what is now
+              It follows Li Bai from his birth in what is now
               Kyrgyzstan, through decades of wandering, seeking office and
               writing, to his death in Dangtu in 762. The English translations
-              of the poems on this map are Ha Jin's, from the book.
+              of the poems are Ha Jin's, from the book.
             </p>
             <p>
-              The map is a companion for reading it, not a summary. It tracks
-              where Li Bai was, not the routes he took between stops.
+              This map is a personal project by <a href="https://www.kohzy.com" target="_blank" rel="noopener noreferrer">Kohzy</a>, not officially endorsed by the author or publisher. It serves as a companion. It tracks
+              where Li Bai was at various points in his life.
             </p>
           </Section>
           <Section value="maker" title="Who made it">
             <p>
-              Kohzy collected these 39 stops by hand while reading the book, to
-              keep track of where Li Bai was from chapter to chapter.
+              <a href="https://www.kohzy.com" target="_blank" rel="noopener noreferrer">Kohzy</a> is an artist and a translator. Having enjoyed the book and Ha Jin's translations, Kohzy personally mapped the 39 stops.
             </p>
             <p>
-              [A line or two about you: what you do, and where people can find
-              you.]
-            </p>
-            <p>
-              The code and the stop data are on{' '}
+              The stop data is available on{' '}
               <a href="https://github.com/kohzy/libai-map">GitHub</a>.
             </p>
           </Section>
