@@ -5,6 +5,7 @@ An interactive map companion to Ha Jin's *The Banished Immortal: A Life of Li Ba
 - Itinerary data: `src/data/libai-stop.json` (GeoJSON, hand-collected; field notes in `src/data/README.md`).
 - Scripts: `npm run dev`, `npm run build`, `npm test`, `npm run lint`, `npm run preview`.
 - Mapbox token: set `VITE_MAPBOX_API_TOKEN` in `.env.local` (see `.env.example`).
+- Poem narration: `api/narrate.ts` reads `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` on the server (README, "Poem narration"). Modules it imports under `src/narration/` use relative `.js` imports and no `@/` alias.
 
 ## ui-sdk
 

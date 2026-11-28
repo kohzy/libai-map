@@ -156,6 +156,45 @@
   font-size: 13px;
 }
 
+.narration {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.narrateButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px 0 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--raised);
+  }
+
+  &[aria-busy] svg {
+    opacity: 0.6;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .enColumn {
   flex: 0 1 40ch;
   min-width: 0;
