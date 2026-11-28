@@ -41,8 +41,7 @@ function StopIndex({ current, dispatch }: StopIndexProps) {
                           {stop.properties.title}
                         </span>
                         <span className={styles.rowMeta}>
-                          Age {age(stop)}
-                          {poem ? ', with a poem' : ''}
+                          {poem ? 'Read poem' : ''}
                         </span>
                       </span>
                       <span

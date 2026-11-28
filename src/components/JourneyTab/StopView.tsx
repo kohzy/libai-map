@@ -99,7 +99,7 @@ function StopView({ index, dispatch }: StopViewProps) {
             onClick={() => dispatch({ type: 'step', action: 'next' })}
           >
             <span className={styles.nextLabel}>
-              {last ? 'Back to the start' : 'Next stop'}, {next.properties.year}
+              {last ? 'Back to the start' : 'Next stop'}
             </span>
             <span className={styles.nextTitle}>{next.properties.title}</span>
           </button>
