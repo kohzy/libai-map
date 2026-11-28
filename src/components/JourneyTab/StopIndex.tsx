@@ -1,7 +1,7 @@
 import type { Dispatch } from 'react'
 import PanelScroll from '@/components/PanelScroll/PanelScroll'
 import { stops } from '@/itinerary'
-import { age, decadeGroups, hasPoem } from '@/itinerary/poems'
+import { decadeGroups, hasPoem } from '@/itinerary/poems'
 import type { JourneyAction } from '@/journey/useJourney'
 import styles from './JourneyTab.module.css'
 
