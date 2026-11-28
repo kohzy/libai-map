@@ -60,6 +60,11 @@ describe('narration handler', () => {
     ['extra text to speak', `${canonical}&text=hello`],
     ['a cache-busting extra parameter', `${canonical}&x=1`],
     ['a repeated parameter', `${canonical}&line=1`],
+    ['a zero-padded stop', `stop=04&line=0&v=${VOICE_VERSION}`],
+    ['a zero-padded line', `stop=4&line=00&v=${VOICE_VERSION}`],
+    ['reordered parameters', `line=0&stop=4&v=${VOICE_VERSION}`],
+    ['a percent-encoded value', `stop=%34&line=0&v=${VOICE_VERSION}`],
+    ['a percent-encoded key', `%73top=4&line=0&v=${VOICE_VERSION}`],
   ])('rejects %s without calling Azure', async (_, query) => {
     const fetchMock = stubAzure(new Response('unused'))
     const response = await handleNarration(request(query), env)
