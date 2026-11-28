@@ -4,6 +4,7 @@ import {
   cameraFor,
   route,
   routeBounds,
+  routeUpTo,
   step,
   stops,
 } from './index'
@@ -100,5 +101,38 @@ describe('stops', () => {
   it('keeps optional camera values optional', () => {
     expect(stops[0].properties.mapbox_zoom).toBe(5)
     expect(stops[1].properties.mapbox_zoom).toBeUndefined()
+  })
+})
+
+describe('routeUpTo', () => {
+  const pointCount = (fraction: number) =>
+    routeUpTo(fraction).features.reduce(
+      (sum, feature) => sum + feature.geometry.coordinates.length,
+      0
+    )
+
+  it('draws nothing at the start and the whole route at the end', () => {
+    expect(routeUpTo(0).features).toHaveLength(0)
+    expect(routeUpTo(1)).toEqual(route)
+  })
+
+  it('draws the journey in order, starting from the first stop', () => {
+    const partial = routeUpTo(0.5)
+    expect(partial.features.length).toBeGreaterThan(0)
+    expect(partial.features.length).toBeLessThan(route.features.length)
+    partial.features.slice(0, -1).forEach((feature, n) => {
+      expect(feature).toEqual(route.features[n])
+    })
+    const tip = partial.features[partial.features.length - 1]
+    expect(tip.geometry.coordinates[0]).toEqual(
+      route.features[partial.features.length - 1].geometry.coordinates[0]
+    )
+  })
+
+  it('only grows as the fraction grows', () => {
+    const counts = [0.1, 0.3, 0.6, 0.9].map(pointCount)
+    counts.slice(1).forEach((count, n) => {
+      expect(count).toBeGreaterThan(counts[n])
+    })
   })
 })

@@ -2,7 +2,14 @@ import mapboxgl from 'mapbox-gl'
 import type { AnyLayer, GeoJSONSource } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { useEffect, useRef } from 'react'
-import { cameraFor, route, routeBounds, stopCollection } from '@/itinerary'
+import { matchesQuery } from '@/hooks/useMediaQuery'
+import {
+  cameraFor,
+  route,
+  routeBounds,
+  routeUpTo,
+  stopCollection,
+} from '@/itinerary'
 import type { Segment, Stop } from '@/itinerary'
 import styles from './MapView.module.css'
 
@@ -10,12 +17,35 @@ const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_API_TOKEN as string | undefined
 const MAP_STYLE = 'mapbox://styles/kohzy/ckbwr93pu1e4a1hmw0mltc38t'
 const EASE_DURATION_MS = 5000
 const ROUTE_PADDING = 64
+const INTRO_DURATION_MS = 2500
+const JOURNEY_COUNTRIES = ['CN', 'KG']
 const NO_SEGMENT: GeoJSON.FeatureCollection = {
   type: 'FeatureCollection',
   features: [],
 }
 
 const layers: AnyLayer[] = [
+  {
+    id: 'elsewhere',
+    type: 'fill',
+    source: 'countries',
+    'source-layer': 'country_boundaries',
+    filter: [
+      'all',
+      // Disputed areas come once per worldview, listed like "IN,JP,US"; keep a single one.
+      [
+        'any',
+        ['==', ['get', 'worldview'], 'all'],
+        ['in', 'US', ['get', 'worldview']],
+      ],
+      ['!=', ['get', 'disputed'], 'true'],
+      ['!', ['match', ['get', 'iso_3166_1'], JOURNEY_COUNTRIES, true, false]],
+    ],
+    paint: {
+      'fill-color': 'hsl(197, 48%, 6%)',
+      'fill-opacity': 0.78,
+    },
+  },
   {
     id: 'route',
     type: 'line',
@@ -41,16 +71,6 @@ const layers: AnyLayer[] = [
     layout: {
       'icon-image': 'embassy-15',
       'icon-size': 1.5,
-      'text-field': ['get', 'title'],
-      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-      'text-offset': [0, 1],
-      'text-anchor': 'top',
-      'text-size': 22,
-    },
-    paint: {
-      'text-color': 'rgba(233, 229, 222, 0.9)',
-      'text-halo-color': 'rgba(22, 23, 25, 0.9)',
-      'text-halo-width': 1.2,
     },
   },
 ]
@@ -77,6 +97,18 @@ function showView(map: mapboxgl.Map, view: MapViewProps) {
   }
 }
 
+function drawRoute(source: GeoJSONSource): () => void {
+  let frame = 0
+  const start = performance.now()
+  const tick = (now: number) => {
+    const t = Math.min(1, (now - start) / INTRO_DURATION_MS)
+    source.setData(routeUpTo(1 - (1 - t) ** 3))
+    if (t < 1) frame = requestAnimationFrame(tick)
+  }
+  frame = requestAnimationFrame(tick)
+  return () => cancelAnimationFrame(frame)
+}
+
 function MapView({ stop, segment, started }: MapViewProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -100,16 +132,27 @@ function MapView({ stop, segment, started }: MapViewProps) {
           }),
     })
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    let stopDrawing = () => {}
 
     map.on('load', () => {
+      map.addSource('countries', {
+        type: 'vector',
+        url: 'mapbox://mapbox.country-boundaries-v1',
+      })
       map.addSource('libaistops', { type: 'geojson', data: stopCollection })
-      map.addSource('route', { type: 'geojson', data: route })
+      const animate = !matchesQuery('(prefers-reduced-motion: reduce)')
+      map.addSource('route', {
+        type: 'geojson',
+        data: animate ? NO_SEGMENT : route,
+      })
       map.addSource('activeRoute', {
         type: 'geojson',
         data: initial.started ? initial.segment : NO_SEGMENT,
       })
       layers.forEach((layer) => map.addLayer(layer))
       mapRef.current = map
+      if (animate)
+        stopDrawing = drawRoute(map.getSource('route') as GeoJSONSource)
 
       // A step, or a return home, taken while the style was loading has to be applied now.
       const latest = latestRef.current
@@ -123,6 +166,7 @@ function MapView({ stop, segment, started }: MapViewProps) {
 
     return () => {
       observer.disconnect()
+      stopDrawing()
       mapRef.current = null
       map.remove()
     }

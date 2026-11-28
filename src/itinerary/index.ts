@@ -33,6 +33,33 @@ export const route: Route = {
     ),
 }
 
+const segmentMiles = route.features.map((segment) =>
+  length(segment, { units: 'miles' })
+)
+const routeMiles = segmentMiles.reduce((sum, miles) => sum + miles, 0)
+
+export function routeUpTo(fraction: number): Route {
+  if (fraction >= 1) return route
+  let remaining = Math.max(0, fraction) * routeMiles
+  const features: Segment[] = []
+  for (const [n, segment] of route.features.entries()) {
+    if (remaining <= 0) break
+    if (remaining >= segmentMiles[n]) {
+      features.push(segment)
+    } else {
+      // Arc points are evenly spaced, so a share of the points is the same share of the distance.
+      const points = segment.geometry.coordinates
+      const count = Math.max(
+        2,
+        Math.ceil((points.length * remaining) / segmentMiles[n])
+      )
+      features.push(lineString(points.slice(0, count)))
+    }
+    remaining -= segmentMiles[n]
+  }
+  return { type: 'FeatureCollection', features }
+}
+
 export function routeBounds(): [[number, number], [number, number]] {
   const lons = stops.map((stop) => stop.geometry.coordinates[0])
   const lats = stops.map((stop) => stop.geometry.coordinates[1])
