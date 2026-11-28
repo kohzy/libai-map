@@ -16,9 +16,6 @@ function PoemsTab({ state, dispatch }: PoemsTabProps) {
   return (
     <PanelScroll label="Poems">
       <nav aria-label="Poems" className={styles.list}>
-        <p className={styles.intro}>
-          {POEM_STOPS.length} poems, in journey order. Each opens in the reader.
-        </p>
         <ol className={styles.rows}>
           {POEM_STOPS.map((i) => {
             const p = stops[i].properties
